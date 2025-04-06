@@ -64,5 +64,3 @@ Each block represents a unit of machine-interpretable knowledge (typically an em
 ---
 
 This format is designed to be extendable. Any field not listed above must be namespaced.
-
-**Next**: define validation tools, cryptographic schemes, and node behaviors.
