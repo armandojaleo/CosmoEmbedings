@@ -23,7 +23,7 @@ To create a decentralized network where multiple AIs can share, validate, and re
 
 ## Repository Structure
 
-'''
+```
 /cosmicembeddings
 ├── core/           # Core logic for node behavior and block creation
 ├── api/            # Endpoints to query and contribute embeddings
@@ -31,7 +31,7 @@ To create a decentralized network where multiple AIs can share, validate, and re
 ├── examples/       # Use cases and integration scenarios
 ├── tools/          # Converters, validators, format adapters
 └── README.md       # This document
-'''
+```
 
 ## Current Status
 - MVP under design. First target: embedding block format, validation rules, and node sync logic.
