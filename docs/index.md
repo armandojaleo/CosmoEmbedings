@@ -73,7 +73,7 @@ To start using CosmoEmbeddings, see:
 
 Contributions are welcome! To contribute to the project:
 
-1. Check the [open issues](https://github.com/CosmoEmbeddings/sdk/issues)
+1. Check the [open issues](https://github.com/armandojaleo/CosmoEmbeddings/issues)
 2. Fork the repository
 3. Create a branch for your feature
 4. Submit a pull request

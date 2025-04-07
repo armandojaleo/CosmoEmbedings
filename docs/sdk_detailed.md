@@ -280,6 +280,6 @@ with open("example_block.json", "w") as f:
 
 If you encounter issues not covered here, please:
 
-1. Check the [GitHub repository](https://github.com/cosmoembeddings/sdk) for updates
+1. Check the [GitHub repository](https://github.com/armandojaleo/CosmoEmbeddings/) for updates
 2. Open an issue on GitHub with details about your problem
 3. Join the [Discord community](https://discord.gg/cosmoembeddings) for real-time help 
