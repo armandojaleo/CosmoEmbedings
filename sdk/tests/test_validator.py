@@ -3,21 +3,21 @@ from cosmicembeddings.validator import validate_block
 import pytest
 import time
 from datetime import datetime
-from cosmicembeddings.validator import CosmicValidator
+from cosmicembeddings.validator import CosmoValidator
 
 def test_dummy_validation():
     block = {"signature": "signed_with_private_key"}
     assert validate_block(block, "demo_public_key") == True
 
 def test_validator_initialization():
-    validator = CosmicValidator(40.7128, -74.0060)  # New York coordinates
+    validator = CosmoValidator(40.7128, -74.0060)  # New York coordinates
     assert validator.latitude == 40.7128
     assert validator.longitude == -74.0060
     assert validator.elevation == 0.0
     assert validator.location is not None
 
 def test_get_celestial_signature():
-    validator = CosmicValidator(40.7128, -74.0060)
+    validator = CosmoValidator(40.7128, -74.0060)
     signature = validator.get_celestial_signature()
     
     assert "timestamp" in signature
@@ -44,14 +44,14 @@ def test_get_celestial_signature():
     assert "phase" in moon
 
 def test_get_celestial_signature_with_timestamp():
-    validator = CosmicValidator(40.7128, -74.0060)
+    validator = CosmoValidator(40.7128, -74.0060)
     timestamp = time.time()
     signature = validator.get_celestial_signature(timestamp)
     
     assert abs(signature["timestamp"] - timestamp) < 1  # Allow 1 second difference
 
 def test_validate_block():
-    validator = CosmicValidator(40.7128, -74.0060)
+    validator = CosmoValidator(40.7128, -74.0060)
     block = {
         "version": "1.0",
         "content": "test content",
@@ -66,7 +66,7 @@ def test_validate_block():
     assert "cosmic_hash" in block
 
 def test_validate_block_missing_timestamp():
-    validator = CosmicValidator(40.7128, -74.0060)
+    validator = CosmoValidator(40.7128, -74.0060)
     block = {
         "version": "1.0",
         "content": "test content"
@@ -77,7 +77,7 @@ def test_validate_block_missing_timestamp():
     assert reason == "Block missing timestamp"
 
 def test_verify_cosmic_signature():
-    validator = CosmicValidator(40.7128, -74.0060)
+    validator = CosmoValidator(40.7128, -74.0060)
     block = {
         "version": "1.0",
         "content": "test content",
@@ -90,10 +90,10 @@ def test_verify_cosmic_signature():
     # Then verify the signature
     is_valid, reason = validator.verify_cosmic_signature(block)
     assert is_valid is True
-    assert reason == "Cosmic signature verified"
+    assert reason == "Cosmo signature verified"
 
 def test_verify_cosmic_signature_missing_fields():
-    validator = CosmicValidator(40.7128, -74.0060)
+    validator = CosmoValidator(40.7128, -74.0060)
     block = {
         "version": "1.0",
         "content": "test content",
@@ -105,7 +105,7 @@ def test_verify_cosmic_signature_missing_fields():
     assert reason == "Block missing cosmic signature or hash"
 
 def test_verify_cosmic_signature_modified():
-    validator = CosmicValidator(40.7128, -74.0060)
+    validator = CosmoValidator(40.7128, -74.0060)
     block = {
         "version": "1.0",
         "content": "test content",
@@ -124,7 +124,7 @@ def test_verify_cosmic_signature_modified():
     assert "hash mismatch" in reason
 
 def test_verify_cosmic_signature_old_timestamp():
-    validator = CosmicValidator(40.7128, -74.0060)
+    validator = CosmoValidator(40.7128, -74.0060)
     block = {
         "version": "1.0",
         "content": "test content",

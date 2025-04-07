@@ -10,7 +10,7 @@ from datetime import datetime
 # Add the SDK directory to the path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sdk')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmicValidator, Config
+from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 # In-memory store for demo purposes
 BLOCKS = {}
@@ -19,7 +19,7 @@ BLOCKS = {}
 config = Config()
 builder = BlockBuilder()
 signer = Signer()
-validator = CosmicValidator(
+validator = CosmoValidator(
     latitude=40.7128,  # New York coordinates
     longitude=-74.0060,
     elevation=0.0
@@ -73,7 +73,7 @@ class SimpleNodeHandler(BaseHTTPRequestHandler):
             is_valid, reason = validator.verify_cosmic_signature(block)
             if not is_valid:
                 self._set_headers(400)
-                self.wfile.write(json.dumps({"error": f"Cosmic signature verification failed: {reason}"}).encode())
+                self.wfile.write(json.dumps({"error": f"Cosmo signature verification failed: {reason}"}).encode())
                 return
                 
             # Store the block

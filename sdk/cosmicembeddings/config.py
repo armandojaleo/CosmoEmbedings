@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 class Config:
-    """Configuration manager for the CosmicEmbeddings SDK."""
+    """Configuration manager for the CosmoEmbeddings SDK."""
     
     def __init__(self, config_file: Optional[str] = None):
         """
@@ -63,7 +63,7 @@ class Config:
         if "COSMIC_PUBLIC_KEY" in os.environ:
             self.config["public_key"] = os.environ["COSMIC_PUBLIC_KEY"]
             
-        # Cosmic validation configuration
+        # Cosmo validation configuration
         if "COSMIC_VALIDATION_ENABLED" in os.environ:
             self.config["cosmic_validation"]["enabled"] = os.environ["COSMIC_VALIDATION_ENABLED"].lower() == "true"
             

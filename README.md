@@ -1,8 +1,8 @@
-# CosmicEmbeddings
+# CosmoEmbeddings
 
 **The first decentralized semantic network for AIs built on embeddings.**
 
-CosmicEmbeddings is an open-source project that reimagines how artificial intelligences collaborate and grow. Instead of communicating via human-readable text, AIs in CosmicEmbeddings exchange raw embeddings—vectorized internal representations of knowledge—through a decentralized, validated, and privacy-respecting network.
+CosmoEmbeddings is an open-source project that reimagines how artificial intelligences collaborate and grow. Instead of communicating via human-readable text, AIs in CosmoEmbeddings exchange raw embeddings—vectorized internal representations of knowledge—through a decentralized, validated, and privacy-respecting network.
 
 ---
 
@@ -17,7 +17,7 @@ To create a decentralized network where multiple AIs can share, validate, and re
 - **Embedding-centric knowledge**: Each block is an embedding (e.g., text, image, audio) that represents a unit of meaning or data.
 - **Model-aware**: Every embedding includes its source model and format, enabling cross-model compatibility or translation.
 - **Security and privacy**: Blocks are signed with Ed25519, optionally encrypted, and validated without exposing sensitive input data.
-- **Cosmic validation**: Uses observable celestial configurations—captured from a specific time and location—as part of the timestamp and validation signature, ensuring unmatched uniqueness, non-replicability, and natural-world anchoring.
+- **Cosmo validation**: Uses observable celestial configurations—captured from a specific time and location—as part of the timestamp and validation signature, ensuring unmatched uniqueness, non-replicability, and natural-world anchoring.
 - **Decentralized and scalable**: No central server; knowledge is distributed across AI nodes with reputational consensus.
 - **Traceable and evolvable**: Every knowledge block includes metadata (timestamp, creator, links to other blocks) for audit and version control.
 
@@ -25,10 +25,10 @@ To create a decentralized network where multiple AIs can share, validate, and re
 
 ## 🧠 What Makes Us Unique
 
-CosmicEmbeddings is not just another AI or embedding platform. Here's how we stand apart:
+CosmoEmbeddings is not just another AI or embedding platform. Here's how we stand apart:
 
 - **No speculation, no tokens**: We don't use crypto incentives. Trust and contribution are validated through behavior and reputation.
-- **Cosmic anchoring for validation**: Astronomical data becomes a unique proof of moment and place—physical, verifiable, and unforgeable.
+- **Cosmo anchoring for validation**: Astronomical data becomes a unique proof of moment and place—physical, verifiable, and unforgeable.
 - **Knowledge co-evolution**: Blocks are extended, linked, and branched like semantic Git commits.
 - **Interoperability between models**: Embeddings include format info to allow cross-model interpretation.
 - **Privacy-first and human-agnostic**: No natural language required. Communication is vector-based, encrypted if needed, and machine-native.
@@ -38,7 +38,7 @@ CosmicEmbeddings is not just another AI or embedding platform. Here's how we sta
 ## 📦 Repository Structure
 
 ```
-CosmoEmbedings/
+CosmoEmbeddings/
 ├── docs/               # Protocols and specs
 ├── sdk/                # Python SDK
 │   ├── cosmicembeddings/
@@ -70,12 +70,12 @@ pip install -e .
 ### Create and Validate a Block
 
 ```python
-from cosmicembeddings import BlockBuilder, Signer, CosmicValidator
+from cosmicembeddings import BlockBuilder, Signer, CosmoValidator
 
 # Initialize components
 builder = BlockBuilder()
 signer = Signer()
-validator = CosmicValidator(latitude=40.7128, longitude=-74.0060)
+validator = CosmoValidator(latitude=40.7128, longitude=-74.0060)
 
 # Create and sign a block
 block = builder.create_block("Hello, world!")
@@ -102,9 +102,11 @@ This will:
 
 ## 📚 Documentation
 
+### [Github Pages](https://armandojaleo.github.io/CosmoEmbeddings/)
+
 - [Block Specification](docs/block_spec.md)
 - [Node Protocol](docs/node_protocol.md)
-- [Cosmic Validation](docs/cosmic_validation.md)
+- [Cosmo Validation](docs/cosmic_validation.md)
 - [SDK Interface](docs/sdk_interface.md)
 - [Architecture](docs/architecture.md)
 

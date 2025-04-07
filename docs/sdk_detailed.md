@@ -1,6 +1,6 @@
-# CosmicEmbeddings SDK - Detailed Documentation
+# CosmoEmbeddings SDK - Detailed Documentation
 
-This document provides detailed information about the CosmicEmbeddings SDK, including API references, examples, and best practices.
+This document provides detailed information about the CosmoEmbeddings SDK, including API references, examples, and best practices.
 
 ## Table of Contents
 
@@ -9,7 +9,7 @@ This document provides detailed information about the CosmicEmbeddings SDK, incl
 3. [Core Components](#core-components)
    - [BlockBuilder](#blockbuilder)
    - [Signer](#signer)
-   - [CosmicValidator](#cosmicvalidator)
+   - [CosmoValidator](#cosmicvalidator)
    - [Config](#config)
    - [SyncClient](#syncclient)
 4. [CLI Interface](#cli-interface)
@@ -19,7 +19,7 @@ This document provides detailed information about the CosmicEmbeddings SDK, incl
 
 ## Introduction
 
-The CosmicEmbeddings SDK is a Python library that enables the creation, signing, and validation of knowledge blocks based on embeddings. It provides a decentralized semantic network where different AGIs using various LLMs can securely share and validate embeddings.
+The CosmoEmbeddings SDK is a Python library that enables the creation, signing, and validation of knowledge blocks based on embeddings. It provides a decentralized semantic network where different AGIs using various LLMs can securely share and validate embeddings.
 
 ## Installation
 
@@ -91,15 +91,15 @@ is_valid = signer.verify_block(signed_block)
 print(f"Signature valid: {is_valid}")
 ```
 
-### CosmicValidator
+### CosmoValidator
 
-The `CosmicValidator` class validates blocks using cosmic signatures based on celestial positions.
+The `CosmoValidator` class validates blocks using cosmic signatures based on celestial positions.
 
 ```python
-from cosmicembeddings import CosmicValidator
+from cosmicembeddings import CosmoValidator
 
 # Initialize the validator with location
-validator = CosmicValidator(
+validator = CosmoValidator(
     latitude=40.7128,  # New York coordinates
     longitude=-74.0060,
     elevation=0.0
@@ -117,7 +117,7 @@ print(f"Celestial signature: {signature}")
 
 # Verify a cosmic signature
 is_valid, reason = validator.verify_cosmic_signature(signed_block)
-print(f"Cosmic signature valid: {is_valid}")
+print(f"Cosmo signature valid: {is_valid}")
 if not is_valid:
     print(f"Reason: {reason}")
 ```
@@ -190,13 +190,13 @@ cosmicembeddings-test --verbose
 ### Complete Workflow
 
 ```python
-from cosmicembeddings import BlockBuilder, Signer, CosmicValidator, Config
+from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 # Initialize components
 config = Config()
 builder = BlockBuilder()
 signer = Signer()
-validator = CosmicValidator(
+validator = CosmoValidator(
     latitude=40.7128,
     longitude=-74.0060,
     elevation=0.0
@@ -256,7 +256,7 @@ with open("example_block.json", "w") as f:
 4. **Use consistent locations for cosmic validation**:
    ```python
    # Use the same location for creating and validating blocks
-   validator = CosmicValidator(latitude=40.7128, longitude=-74.0060)
+   validator = CosmoValidator(latitude=40.7128, longitude=-74.0060)
    ```
 
 ## Troubleshooting

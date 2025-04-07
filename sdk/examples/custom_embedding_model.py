@@ -2,7 +2,7 @@
 # custom_embedding_model.py
 
 """
-This example demonstrates how to integrate the CosmicEmbeddings SDK with a custom embedding model.
+This example demonstrates how to integrate the CosmoEmbeddings SDK with a custom embedding model.
 It shows how to create blocks with embeddings from different sources and share them in the network.
 """
 
@@ -15,7 +15,7 @@ from datetime import datetime
 # Add the parent directory to the path to import the SDK
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmicValidator, Config
+from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 # Custom embedding model class
 class CustomEmbeddingModel:
@@ -86,21 +86,21 @@ class CustomBlockBuilder(BlockBuilder):
 
 def main():
     """Run the example."""
-    print("CosmicEmbeddings SDK - Custom Embedding Model Example")
+    print("CosmoEmbeddings SDK - Custom Embedding Model Example")
     print("=====================================================")
     
     # Initialize components
     config = Config()
     builder = CustomBlockBuilder()
     signer = Signer()
-    validator = CosmicValidator(
+    validator = CosmoValidator(
         latitude=40.7128,  # New York coordinates
         longitude=-74.0060,
         elevation=0.0
     )
     
     # Create a block with custom embeddings
-    content = "This is an example of using a custom embedding model with CosmicEmbeddings."
+    content = "This is an example of using a custom embedding model with CosmoEmbeddings."
     metadata = {
         "source": "custom_example",
         "author": "demo_user",
@@ -143,7 +143,7 @@ def main():
     
     # Verify the cosmic signature
     is_valid, reason = validator.verify_cosmic_signature(loaded_block)
-    print(f"Cosmic signature valid: {is_valid}")
+    print(f"Cosmo signature valid: {is_valid}")
     if not is_valid:
         print(f"Reason: {reason}")
     

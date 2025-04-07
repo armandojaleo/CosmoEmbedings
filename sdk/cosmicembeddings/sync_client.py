@@ -8,7 +8,7 @@ import uuid
 from .config import Config
 
 class SyncClient:
-    """Client for interacting with other nodes in the CosmicEmbeddings network."""
+    """Client for interacting with other nodes in the CosmoEmbeddings network."""
     
     def __init__(self, config: Optional[Config] = None):
         """

@@ -2,9 +2,9 @@
 layout: default
 ---
 
-# Getting Started with CosmicEmbeddings
+# Getting Started with CosmoEmbeddings
 
-This guide will help you get started with CosmicEmbeddings quickly and easily.
+This guide will help you get started with CosmoEmbeddings quickly and easily.
 
 ## Installation
 
@@ -17,8 +17,8 @@ pip install cosmicembeddings
 ### Manual Installation
 
 ```bash
-git clone https://github.com/armandojaleo/CosmoEmbedings.git
-cd CosmoEmbedings/sdk
+git clone https://github.com/armandojaleo/CosmoEmbeddings.git
+cd CosmoEmbeddings/sdk
 pip install -e .
 ```
 
@@ -28,7 +28,7 @@ pip install -e .
 
 Using the CLI:
 ```bash
-cosmicembeddings create-block --text "Hello, CosmicEmbeddings!" --tag "greeting"
+cosmicembeddings create-block --text "Hello, CosmoEmbeddings!" --tag "greeting"
 ```
 
 Using Python:
@@ -38,7 +38,7 @@ from cosmicembeddings import BlockBuilder, Signer
 # Create a block
 builder = BlockBuilder()
 block = builder.create_block(
-    text="Hello, CosmicEmbeddings!",
+    text="Hello, CosmoEmbeddings!",
     metadata={"tag": "greeting"}
 )
 
@@ -56,9 +56,9 @@ cosmicembeddings verify-block --block-file block.json
 
 Using Python:
 ```python
-from cosmicembeddings import CosmicValidator
+from cosmicembeddings import CosmoValidator
 
-validator = CosmicValidator()
+validator = CosmoValidator()
 is_valid = validator.validate_block(signed_block)
 print(f"Block is valid: {is_valid}")
 ```
@@ -83,7 +83,7 @@ for block in blocks:
 ## Next Steps
 
 1. [Explore Advanced Examples](sdk_detailed.md#advanced-examples)
-2. [Learn about Cosmic Validation](cosmic_validation.md)
+2. [Learn about Cosmo Validation](cosmic_validation.md)
 3. [Understand the Block Specification](block_spec.md)
 4. [Join the Network](node_protocol.md)
 

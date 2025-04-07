@@ -33,8 +33,8 @@ class WebHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self._set_headers()
         blocks = get_all_blocks()
-        html = "<html><head><title>CosmicEmbeddings UI</title></head><body>"
-        html += "<h1>🧠 CosmicEmbeddings - Block Viewer</h1><ul>"
+        html = "<html><head><title>CosmoEmbeddings UI</title></head><body>"
+        html += "<h1>🧠 CosmoEmbeddings - Block Viewer</h1><ul>"
         for block in blocks:
             html += f"<li><b>{block['id']}</b> @ {block['source']} | Tags: {', '.join(block.get('tags', []))}</li>"
         html += "</ul></body></html>"

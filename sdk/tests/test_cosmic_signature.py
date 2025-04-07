@@ -1,13 +1,13 @@
 import unittest
 import time
-from cosmicembeddings import CosmicSignatureGenerator
+from cosmicembeddings import CosmoSignatureGenerator
 
-class TestCosmicSignatureGenerator(unittest.TestCase):
-    """Test cases for the CosmicSignatureGenerator class."""
+class TestCosmoSignatureGenerator(unittest.TestCase):
+    """Test cases for the CosmoSignatureGenerator class."""
     
     def setUp(self):
         """Set up test fixtures."""
-        self.generator = CosmicSignatureGenerator()
+        self.generator = CosmoSignatureGenerator()
         
     def test_get_star_positions(self):
         """Test getting star positions."""
@@ -106,7 +106,7 @@ class TestCosmicSignatureGenerator(unittest.TestCase):
     def test_fallback_stars(self):
         """Test that fallback stars are used when API is unavailable."""
         # Create a generator with an invalid API key
-        generator = CosmicSignatureGenerator(api_key="invalid_key")
+        generator = CosmoSignatureGenerator(api_key="invalid_key")
         
         # Get star positions
         stars = generator.get_star_positions(40.7128, -74.0060)

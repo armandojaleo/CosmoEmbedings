@@ -26,7 +26,7 @@ def threaded_run(path):
     return t
 
 if __name__ == "__main__":
-    print(f"🚀 Launching full CosmicEmbeddings simulation (SDK version: {config.get('version', 'unknown')})...")
+    print(f"🚀 Launching full CosmoEmbeddings simulation (SDK version: {config.get('version', 'unknown')})...")
 
     # Start nodes in threads
     print("🛰 Starting simulated nodes...")

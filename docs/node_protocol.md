@@ -4,7 +4,7 @@ layout: default
 
 # Node Protocol
 
-The Node Protocol is a fundamental component of the CosmicEmbeddings network, enabling nodes to discover each other, establish connections, and maintain a peer-to-peer network.
+The Node Protocol is a fundamental component of the CosmoEmbeddings network, enabling nodes to discover each other, establish connections, and maintain a peer-to-peer network.
 
 ## Overview
 

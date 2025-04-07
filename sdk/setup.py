@@ -40,7 +40,7 @@ setup(
             "cosmicembeddings-test=run_tests:main",
         ],
     },
-    author="CosmicEmbeddings Team",
+    author="CosmoEmbeddings Team",
     author_email="team@cosmicembeddings.org",
     description="A decentralized semantic network for AIs built on embeddings",
     long_description=open("README.md").read(),

@@ -1,6 +1,6 @@
-# Network Synchronization Protocol – CosmicEmbeddings
+# Network Synchronization Protocol – CosmoEmbeddings
 
-This document defines how nodes in the CosmicEmbeddings network discover each other and synchronize knowledge blocks.
+This document defines how nodes in the CosmoEmbeddings network discover each other and synchronize knowledge blocks.
 
 The goal is to enable decentralized, reliable propagation of validated knowledge without relying on a central authority.
 
@@ -60,7 +60,7 @@ Each received block must go through full validation (as defined in `block_spec.m
 
 ## 🔹 Federation and Interoperability
 
-- Multiple independent networks of CosmicEmbedding nodes may federate via bridge nodes.
+- Multiple independent networks of CosmoEmbedding nodes may federate via bridge nodes.
 - Translation layers can allow integration with non-native nodes or alternate formats.
 
 ---

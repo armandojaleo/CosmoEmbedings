@@ -10,13 +10,13 @@ from datetime import datetime
 # Add the SDK directory to the path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sdk')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmicValidator, Config
+from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 # Initialize SDK components
 config = Config()
 builder = BlockBuilder()
 signer = Signer()
-validator = CosmicValidator(
+validator = CosmoValidator(
     latitude=40.7128,  # New York coordinates
     longitude=-74.0060,
     elevation=0.0

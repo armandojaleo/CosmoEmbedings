@@ -7,14 +7,14 @@ import json
 import hashlib
 from skyfield.api import load, wgs84
 from skyfield.data import hipparcos
-from .cosmic_signature import CosmicSignatureGenerator
+from .cosmic_signature import CosmoSignatureGenerator
 
-class CosmicValidator:
+class CosmoValidator:
     """Class for validating blocks using cosmic signatures."""
     
     def __init__(self, latitude: float, longitude: float, elevation: float = 0.0, api_key: Optional[str] = None):
         """
-        Initialize the CosmicValidator with location data.
+        Initialize the CosmoValidator with location data.
         
         Args:
             latitude: Latitude in degrees
@@ -26,7 +26,7 @@ class CosmicValidator:
         self.longitude = longitude
         self.elevation = elevation
         self.location = wgs84.latlon(latitude, longitude, elevation_m=elevation)
-        self.signature_generator = CosmicSignatureGenerator(api_key=api_key)
+        self.signature_generator = CosmoSignatureGenerator(api_key=api_key)
         
     def get_celestial_signature(self, timestamp: Optional[float] = None) -> Dict:
         """
@@ -147,13 +147,13 @@ class CosmicValidator:
         
         # Verify hash matches
         if calculated_hash != stored_hash:
-            return False, "Cosmic signature hash mismatch"
+            return False, "Cosmo signature hash mismatch"
             
         # Verify timestamp is within reasonable range (e.g., 5 minutes)
         current_time = datetime.utcnow().timestamp()
         time_diff = abs(current_time - stored_signature["timestamp"])
         if time_diff > 300:  # 5 minutes in seconds
-            return False, "Cosmic signature timestamp too old"
+            return False, "Cosmo signature timestamp too old"
             
         # Verify the cosmic signature string
         if "cosmic_signature" in stored_signature:
@@ -166,6 +166,6 @@ class CosmicValidator:
                 timestamp=stored_signature["timestamp"]
             )
             if not is_valid:
-                return False, "Cosmic signature verification failed"
+                return False, "Cosmo signature verification failed"
                 
-        return True, "Cosmic signature verified"
+        return True, "Cosmo signature verified"

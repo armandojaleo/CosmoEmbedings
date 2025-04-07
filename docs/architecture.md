@@ -1,12 +1,12 @@
-# System Architecture – CosmicEmbeddings
+# System Architecture – CosmoEmbeddings
 
-This document outlines the high-level architecture of the CosmicEmbeddings network.
+This document outlines the high-level architecture of the CosmoEmbeddings network.
 
 ---
 
 ## 🔹 Overview
 
-CosmicEmbeddings is a decentralized, multi-agent network where each node (AI or agent) can publish, validate, and consume knowledge in the form of embeddings. Knowledge is encoded in signed blocks and synchronized peer-to-peer using a simple communication protocol.
+CosmoEmbeddings is a decentralized, multi-agent network where each node (AI or agent) can publish, validate, and consume knowledge in the form of embeddings. Knowledge is encoded in signed blocks and synchronized peer-to-peer using a simple communication protocol.
 
 ---
 
@@ -23,7 +23,7 @@ CosmicEmbeddings is a decentralized, multi-agent network where each node (AI or 
 - Digitally signed and optionally encrypted.
 - Anchored to real-world events via timestamp and cosmic signature.
 
-### 3. **Cosmic Validator**
+### 3. **Cosmo Validator**
 - Optional subsystem or service.
 - Verifies the alignment between declared astronomical data and physical observation.
 - Can be used for zero-trust block origin verification.
@@ -59,7 +59,7 @@ CosmicEmbeddings is a decentralized, multi-agent network where each node (AI or 
 | (text/img)  |     | (Create Block) |     |    Block      |
 +-------------+     +----------------+     +---------------+
                           |                         |
-                 [Cosmic Validator]         [Digital Signature]
+                 [Cosmo Validator]         [Digital Signature]
                           |                         |
                         Peer-to-Peer Synchronization
                           |

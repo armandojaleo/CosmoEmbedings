@@ -1,4 +1,4 @@
-# CosmicEmbeddings Simulator Requirements
+# CosmoEmbeddings Simulator Requirements
 
 # SDK dependencies
 -e ../sdk

@@ -1,6 +1,6 @@
-# CosmicEmbeddings – Simulator
+# CosmoEmbeddings – Simulator
 
-This folder contains a local simulation environment for testing and demo purposes. The simulator now uses the CosmicEmbeddings SDK for all operations, including block creation, signing, validation, and cosmic signature verification.
+This folder contains a local simulation environment for testing and demo purposes. The simulator now uses the CosmoEmbeddings SDK for all operations, including block creation, signing, validation, and cosmic signature verification.
 
 ---
 
@@ -19,7 +19,7 @@ This will install the SDK in development mode and all other required packages.
 
 ## 🛰 node_simulator.py
 
-Runs a local HTTP server simulating a CosmicEmbeddings node. Now includes:
+Runs a local HTTP server simulating a CosmoEmbeddings node. Now includes:
 - Full SDK integration
 - Block validation with cosmic signatures
 - Ed25519 signature verification
@@ -108,7 +108,7 @@ python demo_run_all.py
 ## 🔧 Requirements
 
 - Python 3.7+
-- CosmicEmbeddings SDK (installed from `../sdk`)
+- CosmoEmbeddings SDK (installed from `../sdk`)
 - Required Python packages (see `requirements.txt`):
   - numpy
   - scikit-learn
@@ -125,4 +125,4 @@ python demo_run_all.py
 
 ---
 
-Use this folder to test, extend, and explore the CosmicEmbeddings protocol locally. The simulator now provides a complete demonstration of the SDK's capabilities, including real embedding generation, cryptographic signatures, and cosmic validation.
+Use this folder to test, extend, and explore the CosmoEmbeddings protocol locally. The simulator now provides a complete demonstration of the SDK's capabilities, including real embedding generation, cryptographic signatures, and cosmic validation.

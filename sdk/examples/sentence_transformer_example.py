@@ -2,7 +2,7 @@
 # sentence_transformer_example.py
 
 """
-This example demonstrates how to use the CosmicEmbeddings SDK with the SentenceTransformer model.
+This example demonstrates how to use the CosmoEmbeddings SDK with the SentenceTransformer model.
 It shows how to create blocks with real embeddings from a pre-trained model.
 """
 
@@ -15,7 +15,7 @@ import numpy as np
 # Add the parent directory to the path to import the SDK
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmicValidator, Config
+from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 class SentenceTransformerModel:
     """A wrapper for the SentenceTransformer model."""
@@ -74,14 +74,14 @@ class SentenceTransformerBlockBuilder(BlockBuilder):
 
 def main():
     """Run the example."""
-    print("CosmicEmbeddings SDK - SentenceTransformer Example")
+    print("CosmoEmbeddings SDK - SentenceTransformer Example")
     print("=================================================")
     
     # Initialize components
     config = Config()
     builder = SentenceTransformerBlockBuilder()
     signer = Signer()
-    validator = CosmicValidator(
+    validator = CosmoValidator(
         latitude=40.7128,  # New York coordinates
         longitude=-74.0060,
         elevation=0.0

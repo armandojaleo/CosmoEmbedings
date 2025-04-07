@@ -1,8 +1,8 @@
-# Cosmic Validation Protocol – CosmicEmbeddings
+# Cosmo Validation Protocol – CosmoEmbeddings
 
 This document describes the protocol for generating and verifying the **cosmic signature** of a knowledge block.
 
-Cosmic validation anchors each block to a unique moment in space-time using observable astronomical data, offering a natural, tamper-proof fingerprint.
+Cosmo validation anchors each block to a unique moment in space-time using observable astronomical data, offering a natural, tamper-proof fingerprint.
 
 ---
 

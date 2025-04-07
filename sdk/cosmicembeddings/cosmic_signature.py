@@ -5,7 +5,7 @@ from typing import Dict, List, Optional, Tuple
 from datetime import datetime
 import math
 
-class CosmicSignatureGenerator:
+class CosmoSignatureGenerator:
     """Generates cosmic signatures using real astronomical data."""
     
     def __init__(self, api_key: Optional[str] = None):
@@ -119,7 +119,7 @@ class CosmicSignatureGenerator:
             num_stars: Number of stars to include in the signature (default: 5)
             
         Returns:
-            str: Cosmic signature string
+            str: Cosmo signature string
         """
         # Get star positions
         stars = self.get_star_positions(latitude, longitude, elevation, timestamp)
@@ -203,7 +203,7 @@ class CosmicSignatureGenerator:
         Verify a cosmic signature against the current sky.
         
         Args:
-            signature: Cosmic signature to verify
+            signature: Cosmo signature to verify
             latitude: Latitude in degrees
             longitude: Longitude in degrees
             elevation: Elevation in meters (default: 0.0)

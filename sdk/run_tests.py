@@ -54,7 +54,7 @@ def run_tests(test_files=None, verbose=False, coverage=False):
     return result.returncode
 
 def main():
-    parser = argparse.ArgumentParser(description="Run CosmicEmbeddings SDK tests")
+    parser = argparse.ArgumentParser(description="Run CosmoEmbeddings SDK tests")
     parser.add_argument("--test", "-t", action="append", help="Specific test file to run (can be specified multiple times)")
     parser.add_argument("--verbose", "-v", action="store_true", help="Run tests in verbose mode")
     parser.add_argument("--coverage", "-c", action="store_true", help="Generate coverage report")

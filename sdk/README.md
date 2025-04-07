@@ -1,6 +1,6 @@
-# CosmicEmbeddings SDK
+# CosmoEmbeddings SDK
 
-The CosmicEmbeddings SDK is a Python library for creating, signing, and validating knowledge blocks based on embeddings. It allows you to generate and sign knowledge blocks, validate blocks with cosmic signatures, and cryptographically sign with Ed25519.
+The CosmoEmbeddings SDK is a Python library for creating, signing, and validating knowledge blocks based on embeddings. It allows you to generate and sign knowledge blocks, validate blocks with cosmic signatures, and cryptographically sign with Ed25519.
 
 ## 📦 Installation
 
@@ -38,7 +38,7 @@ cosmicembeddings verify block.json --latitude 40.7128 --longitude -74.0060
 ### Using the Python API
 
 ```python
-from cosmicembeddings import BlockBuilder, Signer, CosmicValidator
+from cosmicembeddings import BlockBuilder, Signer, CosmoValidator
 
 # Create a block
 builder = BlockBuilder()
@@ -49,7 +49,7 @@ signer = Signer()
 signed_block = signer.sign_block(block)
 
 # Validate with cosmic signature
-validator = CosmicValidator(latitude=40.7128, longitude=-74.0060)
+validator = CosmoValidator(latitude=40.7128, longitude=-74.0060)
 is_valid, reason = validator.validate_block(signed_block)
 ```
 
@@ -117,8 +117,8 @@ pytest --cov=cosmicembeddings --cov-report=term-missing tests/
 cosmicembeddings/
 ├── block_builder.py      # Create new blocks with embeddings and metadata
 ├── signer.py             # Ed25519 cryptographic signatures
-├── validator.py          # Cosmic validation using celestial positions
-├── cosmic_signature.py   # Cosmic signature generation
+├── validator.py          # Cosmo validation using celestial positions
+├── cosmic_signature.py   # Cosmo signature generation
 ├── config.py             # Configuration management
 ├── sync_client.py        # Client for synchronization with other nodes
 ├── cli.py                # Command-line interface
@@ -160,7 +160,7 @@ For detailed documentation, see:
 - [Block Specification](../docs/block_spec.md) - Structure and fields of blocks
 - [Node Protocol](../docs/node_protocol.md) - Node behavior and responsibilities
 - [Sync Protocol](../docs/sync_protocol.md) - How nodes communicate
-- [Cosmic Validation](../docs/cosmic_validation.md) - How cosmic signatures work
+- [Cosmo Validation](../docs/cosmic_validation.md) - How cosmic signatures work
 - [Architecture](../docs/architecture.md) - System overview
 
 ## 🌟 Features
@@ -175,7 +175,7 @@ For detailed documentation, see:
 - Public/private key management
 - Signature verification
 
-### Cosmic Validation
+### Cosmo Validation
 - Celestial position-based validation
 - Sun and moon position tracking
 - Timestamp verification

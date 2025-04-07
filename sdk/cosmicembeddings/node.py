@@ -1,5 +1,5 @@
 """
-Node protocol implementation for CosmicEmbeddings.
+Node protocol implementation for CosmoEmbeddings.
 This module handles node discovery, peer management, and node identity.
 """
 
@@ -24,7 +24,7 @@ class NodeIdentity:
 
 class Node:
     """
-    Represents a node in the CosmicEmbeddings network.
+    Represents a node in the CosmoEmbeddings network.
     Handles node discovery, peer management, and identity.
     """
     

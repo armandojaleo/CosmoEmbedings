@@ -20,7 +20,7 @@ if __name__ == "__main__":
     ports = [8080, 8081, 8082]
     nodes = []
 
-    print(f"Launching multiple CosmicEmbeddings nodes (SDK version: {config.get('version', 'unknown')}):")
+    print(f"Launching multiple CosmoEmbeddings nodes (SDK version: {config.get('version', 'unknown')}):")
     for port in ports:
         print(f" - Node on port {port}")
         nodes.append(subprocess.Popen(["python", "node_simulator.py"], env={**dict(**os.environ), "PORT": str(port)}))

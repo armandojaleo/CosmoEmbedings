@@ -1,6 +1,6 @@
-# Contributing to CosmicEmbeddings
+# Contributing to CosmoEmbeddings
 
-Thank you for your interest in contributing! We welcome your ideas, code, documentation, and discussion to help evolve the CosmicEmbeddings protocol and tools.
+Thank you for your interest in contributing! We welcome your ideas, code, documentation, and discussion to help evolve the CosmoEmbeddings protocol and tools.
 
 ---
 

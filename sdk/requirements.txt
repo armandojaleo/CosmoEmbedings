@@ -1,4 +1,4 @@
-# CosmicEmbeddings SDK Requirements
+# CosmoEmbeddings SDK Requirements
 
 # Core dependencies
 numpy>=1.21.0

@@ -5,7 +5,7 @@ import sys
 from typing import Dict, List, Optional
 from .block_builder import BlockBuilder
 from .signer import Signer
-from .validator import CosmicValidator
+from .validator import CosmoValidator
 
 def create_block(args):
     """Create a new block with embeddings."""
@@ -35,7 +35,7 @@ def create_block(args):
         
     # Validate block with cosmic signature if requested
     if args.validate:
-        validator = CosmicValidator(args.latitude, args.longitude, args.elevation)
+        validator = CosmoValidator(args.latitude, args.longitude, args.elevation)
         is_valid, reason = validator.validate_block(block)
         if not is_valid:
             print(f"Validation failed: {reason}")
@@ -66,17 +66,17 @@ def verify_block(args):
         
     # Verify cosmic signature if present
     if "cosmic_signature" in block and "cosmic_hash" in block:
-        validator = CosmicValidator(args.latitude, args.longitude, args.elevation)
+        validator = CosmoValidator(args.latitude, args.longitude, args.elevation)
         is_valid, reason = validator.verify_cosmic_signature(block)
-        print(f"Cosmic signature: {'VALID' if is_valid else 'INVALID'}")
+        print(f"Cosmo signature: {'VALID' if is_valid else 'INVALID'}")
         if not is_valid:
             print(f"Reason: {reason}")
     else:
-        print("Cosmic signature: NOT FOUND")
+        print("Cosmo signature: NOT FOUND")
         
 def main():
     """Main entry point for the CLI."""
-    parser = argparse.ArgumentParser(description="CosmicEmbeddings CLI")
+    parser = argparse.ArgumentParser(description="CosmoEmbeddings CLI")
     subparsers = parser.add_subparsers(dest="command", help="Command to execute")
     
     # Create block command

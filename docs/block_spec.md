@@ -1,6 +1,6 @@
-# Block Specification – CosmicEmbeddings
+# Block Specification – CosmoEmbeddings
 
-This document defines the structure and required fields of a **knowledge block** in the CosmicEmbeddings network.
+This document defines the structure and required fields of a **knowledge block** in the CosmoEmbeddings network.
 
 Each block represents a unit of machine-interpretable knowledge (typically an embedding) and contains metadata to ensure traceability, interoperability, and validation integrity.
 
@@ -57,7 +57,7 @@ Each block represents a unit of machine-interpretable knowledge (typically an em
 ## 🔹 Validation Process
 
 1. **Hash Verification**: The hash in `input_reference` must match the original input (if available).
-2. **Cosmic Validation**: The `cosmic_signature` must match the observed astronomical data at the timestamp and location.
+2. **Cosmo Validation**: The `cosmic_signature` must match the observed astronomical data at the timestamp and location.
 3. **Signature Check**: The block’s contents must be signed by the agent and verifiable by its public key.
 4. **Optional Rule Sets**: Communities may apply custom rules for accepting or rejecting blocks (e.g., based on tags or reputation).
 

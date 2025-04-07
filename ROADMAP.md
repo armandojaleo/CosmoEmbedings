@@ -1,6 +1,6 @@
-# 🗺️ Roadmap – CosmicEmbeddings
+# 🗺️ Roadmap – CosmoEmbeddings
 
-This roadmap outlines the short-, mid-, and long-term milestones for the CosmicEmbeddings project, which aims to create a decentralized semantic network where different AGIs using various LLMs can securely share and validate embeddings.
+This roadmap outlines the short-, mid-, and long-term milestones for the CosmoEmbeddings project, which aims to create a decentralized semantic network where different AGIs using various LLMs can securely share and validate embeddings.
 
 ---
 
@@ -24,7 +24,7 @@ This roadmap outlines the short-, mid-, and long-term milestones for the CosmicE
 - [x] Add block validation
 - [x] Create CLI interface for block operations
 
-### Cosmic Validation
+### Cosmo Validation
 - [x] Implement cosmic signature generation
 - [x] Add skyfield integration for astronomical data
 - [x] Create validation protocol

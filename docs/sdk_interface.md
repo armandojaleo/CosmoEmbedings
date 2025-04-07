@@ -1,6 +1,6 @@
-# SDK Interface – CosmicEmbeddings
+# SDK Interface – CosmoEmbeddings
 
-This document defines the structure and functionality of the core SDK for interacting with the CosmicEmbeddings network.
+This document defines the structure and functionality of the core SDK for interacting with the CosmoEmbeddings network.
 
 ---
 
@@ -64,7 +64,7 @@ Validator.validate(
   - Signature
   - Hash match
   - Timestamp format
-  - Cosmic signature (via sky data lookup)
+  - Cosmo signature (via sky data lookup)
 
 ---
 

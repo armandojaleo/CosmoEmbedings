@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Example usage of the CosmicEmbeddings SDK.
+Example usage of the CosmoEmbeddings SDK.
 This script demonstrates how to create, sign, validate, and verify blocks.
 """
 
@@ -9,19 +9,19 @@ import os
 import tempfile
 from block_builder import BlockBuilder
 from signer import Signer
-from validator import CosmicValidator
-from cosmic_signature import CosmicSignatureGenerator
+from validator import CosmoValidator
+from cosmic_signature import CosmoSignatureGenerator
 
 def main():
     # Create a temporary directory for our example
     with tempfile.TemporaryDirectory() as temp_dir:
-        print("=== CosmicEmbeddings SDK Example ===")
+        print("=== CosmoEmbeddings SDK Example ===")
         
         # Initialize components
         print("\n1. Initializing components...")
         builder = BlockBuilder()
         signer = Signer()
-        validator = CosmicValidator(40.7128, -74.0060)  # New York coordinates
+        validator = CosmoValidator(40.7128, -74.0060)  # New York coordinates
         
         # Create a block
         print("\n2. Creating a block...")
@@ -65,7 +65,7 @@ def main():
             
         # Verify cosmic signature
         is_valid, reason = validator.verify_cosmic_signature(signed_block)
-        print(f"Cosmic signature: {'VALID' if is_valid else 'INVALID'}")
+        print(f"Cosmo signature: {'VALID' if is_valid else 'INVALID'}")
         if not is_valid:
             print(f"Reason: {reason}")
             
@@ -81,13 +81,13 @@ def main():
             print("Ed25519 signature: INVALID (expected)")
             
         is_valid, reason = validator.verify_cosmic_signature(tampered_block)
-        print(f"Cosmic signature: {'VALID' if is_valid else 'INVALID'}")
+        print(f"Cosmo signature: {'VALID' if is_valid else 'INVALID'}")
         if not is_valid:
             print(f"Reason: {reason}")
             
-        # Demonstrate direct use of CosmicSignatureGenerator
-        print("\n7. Demonstrating direct use of CosmicSignatureGenerator...")
-        generator = CosmicSignatureGenerator()
+        # Demonstrate direct use of CosmoSignatureGenerator
+        print("\n7. Demonstrating direct use of CosmoSignatureGenerator...")
+        generator = CosmoSignatureGenerator()
         
         # Generate a cosmic signature
         signature = generator.generate_signature(40.7128, -74.0060)
