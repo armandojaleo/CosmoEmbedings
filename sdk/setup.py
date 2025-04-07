@@ -8,6 +8,9 @@ setup(
         "requests",
         "skyfield",
         "ed25519",
+        "numpy",
+        "sentence-transformers",
+        "torch",
     ],
     entry_points={
         "console_scripts": [

@@ -1,41 +1,92 @@
-# example_usage.py
-from cosmicembeddings.block_builder import create_block
-from cosmicembeddings.signer import sign_block
-from cosmicembeddings.validator import validate_block
+#!/usr/bin/env python3
+"""
+Example usage of the CosmicEmbeddings SDK.
+This script demonstrates how to create, sign, validate, and verify blocks.
+"""
 
-# Placeholder example functions
-def create_block(input_data, input_type, model, location, tags):
-    return {
-        "id": "block-example",
-        "embedding": [0.1, 0.2, 0.3],
-        "embedding_format": model,
-        "input_type": input_type,
-        "input_reference": {
-            "hash": "dummyhash",
-            "origin": "local"
-        },
-        "timestamp": "2025-04-06T18:43:00Z",
-        "observer_location": {
-            "lat": location[0],
-            "lon": location[1]
-        },
-        "cosmic_signature": "Orion-127.5",
-        "created_by": "agent_demo",
-        "tags": tags,
-        "linked_blocks": []
-    }
+import json
+import os
+import tempfile
+from block_builder import BlockBuilder
+from signer import Signer
+from validator import CosmicValidator
 
-def sign_block(block, private_key):
-    block["signature"] = "signed_with_private_key"
-    return block
+def main():
+    # Create a temporary directory for our example
+    with tempfile.TemporaryDirectory() as temp_dir:
+        print("=== CosmicEmbeddings SDK Example ===")
+        
+        # Initialize components
+        print("\n1. Initializing components...")
+        builder = BlockBuilder()
+        signer = Signer()
+        validator = CosmicValidator(40.7128, -74.0060)  # New York coordinates
+        
+        # Create a block
+        print("\n2. Creating a block...")
+        content = "This is an example of a cosmic embedding block."
+        metadata = {"source": "example", "author": "demo"}
+        block = builder.create_block(content, metadata)
+        print(f"Block created with {len(block['embeddings'])} embeddings")
+        
+        # Save the block
+        block_path = os.path.join(temp_dir, "block.json")
+        builder.save_block(block, block_path)
+        print(f"Block saved to {block_path}")
+        
+        # Sign the block
+        print("\n3. Signing the block...")
+        signed_block = signer.sign_block(block)
+        print("Block signed with Ed25519")
+        
+        # Save the signed block
+        signed_block_path = os.path.join(temp_dir, "signed_block.json")
+        builder.save_block(signed_block, signed_block_path)
+        print(f"Signed block saved to {signed_block_path}")
+        
+        # Validate the block with cosmic signature
+        print("\n4. Validating the block with cosmic signature...")
+        is_valid, reason = validator.validate_block(signed_block)
+        print(f"Validation result: {reason}")
+        
+        # Save the validated block
+        validated_block_path = os.path.join(temp_dir, "validated_block.json")
+        builder.save_block(signed_block, validated_block_path)
+        print(f"Validated block saved to {validated_block_path}")
+        
+        # Verify the block
+        print("\n5. Verifying the block...")
+        # Verify Ed25519 signature
+        if signer.verify_block(signed_block):
+            print("Ed25519 signature: VALID")
+        else:
+            print("Ed25519 signature: INVALID")
+            
+        # Verify cosmic signature
+        is_valid, reason = validator.verify_cosmic_signature(signed_block)
+        print(f"Cosmic signature: {'VALID' if is_valid else 'INVALID'}")
+        if not is_valid:
+            print(f"Reason: {reason}")
+            
+        # Demonstrate tampering detection
+        print("\n6. Demonstrating tampering detection...")
+        tampered_block = signed_block.copy()
+        tampered_block["content"] = "This content has been tampered with!"
+        
+        # Verify the tampered block
+        if signer.verify_block(tampered_block):
+            print("Ed25519 signature: VALID (unexpected!)")
+        else:
+            print("Ed25519 signature: INVALID (expected)")
+            
+        is_valid, reason = validator.verify_cosmic_signature(tampered_block)
+        print(f"Cosmic signature: {'VALID' if is_valid else 'INVALID'}")
+        if not is_valid:
+            print(f"Reason: {reason}")
+            
+        print("\n=== Example Complete ===")
+        print(f"All files were saved in the temporary directory: {temp_dir}")
+        print("This directory will be automatically deleted when the script exits.")
 
-def validate_block(block, public_key):
-    return block.get("signature") == "signed_with_private_key"
-
-# Demo
-block = create_block("The mitochondria is the powerhouse of the cell.", "text", "demo-embedding-model", (40.4168, -3.7038), ["bio"])
-signed = sign_block(block, "demo_private_key")
-print("Block signed:", signed)
-
-is_valid = validate_block(signed, "demo_public_key")
-print("Validation result:", is_valid)
+if __name__ == "__main__":
+    main()
