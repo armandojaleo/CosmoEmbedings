@@ -1,6 +1,6 @@
 # 🗺️ Roadmap – CosmicEmbeddings
 
-This roadmap outlines the short-, mid-, and long-term milestones for the CosmicEmbeddings project.
+This roadmap outlines the short-, mid-, and long-term milestones for the CosmicEmbeddings project, which aims to create a decentralized semantic network where different AGIs using various LLMs can securely share and validate embeddings.
 
 ---
 
@@ -15,46 +15,151 @@ This roadmap outlines the short-, mid-, and long-term milestones for the CosmicE
 
 ---
 
-## 🚧 Phase 1 – SDK & Node MVP (In Progress)
+## 🎯 Phase 1: Core SDK Development (Current)
 
-- [x] Implement real embedding generation in `block_builder.py`
-- [x] Add cryptographic signature with real Ed25519 keys
-- [x] Implement configuration management system
-- [x] Create synchronization client for network interaction
-- [ ] Fetch and compute real cosmic signature from astronomy APIs
-- [ ] Validate blocks end-to-end from SDK to nodes
-- [ ] Add CLI options for block creation and querying
-- [ ] Update simulator to use new SDK features
-- [ ] Publish SDK to PyPI
+### Block Creation and Signing
+- [x] Implement basic block structure
+- [x] Add metadata support
+- [x] Implement Ed25519 signing
+- [x] Add block validation
+- [x] Create CLI interface for block operations
 
----
+### Cosmic Validation
+- [x] Implement cosmic signature generation
+- [x] Add skyfield integration for astronomical data
+- [x] Create validation protocol
+- [x] Add location-based validation
+- [x] Implement timestamp verification
 
-## 🔄 Phase 2 – Network and Interoperability
+### Configuration and Setup
+- [x] Create configuration management
+- [x] Add environment variable support
+- [x] Implement config file handling
+- [x] Add model configuration options
+- [x] Create setup scripts
 
-- [ ] Implement peer trust and reputation heuristics
-- [ ] Add node persistence (file/db storage)
-- [ ] Create peer-to-peer node discovery protocol
-- [ ] Enable syncing with external tools (LangChain, HuggingFace, etc.)
-- [ ] Support multiple embedding formats with conversion
-
----
-
-## 🌍 Phase 3 – Distributed Network
-
-- [ ] Deploy public testnet with multiple running nodes
-- [ ] Publish validator tools and verification registry
-- [ ] Add relay nodes and bridge protocols for federation
-- [ ] Launch contribution portal and community onboarding
-
----
-
-## 🌌 Phase 4 – Cosmic Embedding Ecosystem
-
-- [ ] Launch a live, trusted knowledge registry
-- [ ] Visual explorer of embeddings and relationships
-- [ ] Decentralized governance and extension voting
-- [ ] Cross-language (Rust, Go, JS) SDKs
+### Documentation
+- [x] Create initial SDK documentation
+- [x] Add API reference
+- [x] Create getting started guide
+- [x] Add examples and tutorials
+- [x] Set up GitHub Pages documentation
 
 ---
+
+## 🚀 Phase 2: Network Implementation (Next)
+
+### Node Protocol
+- [ ] Implement node discovery
+- [ ] Add peer management
+- [ ] Create node identity system
+- [ ] Implement node reputation
+- [ ] Add node configuration
+
+### Sync Protocol
+- [ ] Create block synchronization
+- [ ] Implement conflict resolution
+- [ ] Add network topology management
+- [ ] Create sync status tracking
+- [ ] Implement retry mechanisms
+
+### Network Security
+- [ ] Add encryption for block transmission
+- [ ] Implement node authentication
+- [ ] Create network access control
+- [ ] Add DDoS protection
+- [ ] Implement rate limiting
+
+## 🌟 Phase 3: Advanced Features
+
+### Embedding Models
+- [ ] Add support for multiple embedding models
+- [ ] Implement model versioning
+- [ ] Create model compatibility layer
+- [ ] Add custom model support
+- [ ] Implement model validation
+
+### Block Management
+- [ ] Create block storage system
+- [ ] Implement block indexing
+- [ ] Add block search functionality
+- [ ] Create block versioning
+- [ ] Implement block pruning
+
+### Network Features
+- [ ] Add block routing
+- [ ] Implement load balancing
+- [ ] Create network monitoring
+- [ ] Add performance metrics
+- [ ] Implement network diagnostics
+
+## 🔧 Phase 4: Tools and Integration
+
+### Development Tools
+- [ ] Create debugging tools
+- [ ] Add network simulation
+- [ ] Implement testing framework
+- [ ] Create deployment scripts
+- [ ] Add monitoring tools
+
+### Integration
+- [ ] Add API endpoints
+- [ ] Create web interface
+- [ ] Implement database integration
+- [ ] Add cloud provider support
+- [ ] Create container support
+
+### Documentation
+- [ ] Create advanced tutorials
+- [ ] Add architecture diagrams
+- [ ] Create security guidelines
+- [ ] Add performance guides
+- [ ] Create deployment guides
+
+## 🎨 Phase 5: Polish and Release
+
+### Performance
+- [ ] Optimize block processing
+- [ ] Improve network efficiency
+- [ ] Enhance validation speed
+- [ ] Optimize storage
+- [ ] Improve search performance
+
+### Security
+- [ ] Conduct security audit
+- [ ] Add security features
+- [ ] Implement best practices
+- [ ] Create security documentation
+- [ ] Add vulnerability reporting
+
+### Release
+- [ ] Create release packages
+- [ ] Add installation guides
+- [ ] Create migration guides
+- [ ] Add upgrade procedures
+- [ ] Create release notes
+
+## 📈 Future Considerations
+
+### Scalability
+- [ ] Implement sharding
+- [ ] Add load balancing
+- [ ] Create caching system
+- [ ] Implement CDN support
+- [ ] Add distributed storage
+
+### Features
+- [ ] Add smart contracts
+- [ ] Implement governance
+- [ ] Create token system
+- [ ] Add marketplace
+- [ ] Implement reputation system
+
+### Integration
+- [ ] Add blockchain support
+- [ ] Implement IoT integration
+- [ ] Create mobile support
+- [ ] Add edge computing
+- [ ] Implement AI integration
 
 Want to shape the future? [Join us](../CONTRIBUTING.md) and help build the world's first machine-native semantic network.

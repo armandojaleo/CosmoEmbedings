@@ -5,18 +5,39 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
-        "numpy>=1.19.0",
-        "scikit-learn>=0.24.0",
-        "transformers>=4.0.0",
-        "torch>=1.8.0",
-        "requests>=2.25.0",
-        "python-dotenv>=0.19.0",
-        "skyfield>=1.42",
+        # Core dependencies
+        "numpy>=1.21.0",
+        "scikit-learn>=1.0.0",
+        "transformers>=4.15.0",
+        "torch>=1.10.0",
+        
+        # Embedding models
+        "sentence-transformers>=2.2.2",
+        
+        # Cryptography
         "ed25519>=1.5",
+        
+        # Astronomy
+        "skyfield>=1.42",
+        
+        # Utilities
+        "requests>=2.26.0",
+        "python-dotenv>=0.19.0",
+        "tqdm>=4.62.0",
     ],
+    extras_require={
+        "dev": [
+            "pytest>=6.0.0",
+            "pytest-cov>=2.12.0",
+            "black>=21.5b2",
+            "flake8>=3.9.2",
+            "mypy>=0.910",
+        ],
+    },
     entry_points={
         "console_scripts": [
-            "cosmic=cosmicembeddings.cli:main",
+            "cosmicembeddings=cosmicembeddings.cli:main",
+            "cosmicembeddings-test=run_tests:main",
         ],
     },
     author="CosmicEmbeddings Team",

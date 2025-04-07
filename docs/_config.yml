@@ -1,0 +1,9 @@
+title: CosmicEmbeddings
+description: A decentralized semantic network for AIs built on embeddings
+theme: jekyll-theme-minimal
+baseurl: "/CosmoEmbedings"
+url: "https://armandojaleo.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty 

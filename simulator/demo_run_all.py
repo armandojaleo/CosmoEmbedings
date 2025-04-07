@@ -4,6 +4,16 @@ import subprocess
 import threading
 import time
 import webbrowser
+import os
+import sys
+
+# Add the SDK directory to the path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sdk')))
+
+from cosmicembeddings import Config
+
+# Initialize SDK components
+config = Config()
 
 def run_script(path):
     return subprocess.Popen(["python", path])
@@ -16,7 +26,7 @@ def threaded_run(path):
     return t
 
 if __name__ == "__main__":
-    print("🚀 Launching full CosmicEmbeddings simulation...")
+    print(f"🚀 Launching full CosmicEmbeddings simulation (SDK version: {config.get('version', 'unknown')})...")
 
     # Start nodes in threads
     print("🛰 Starting simulated nodes...")

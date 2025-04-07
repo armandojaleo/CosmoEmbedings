@@ -1,23 +1,27 @@
 # CosmicEmbeddings SDK
 
-This is the official Python SDK for the CosmicEmbeddings protocol.
-
-It allows you to:
-- Generate and sign knowledge blocks (based on embeddings)
-- Validate blocks with cosmic signatures (using celestial positions)
-- Cryptographically sign blocks with Ed25519
-- Interact with the network through a CLI interface
-
----
+The CosmicEmbeddings SDK is a Python library for creating, signing, and validating knowledge blocks based on embeddings. It allows you to generate and sign knowledge blocks, validate blocks with cosmic signatures, and cryptographically sign with Ed25519.
 
 ## 📦 Installation
+
+### Option 1: Install with pip (recommended)
 
 ```bash
 cd sdk
 pip install -e .
 ```
 
----
+This will install the SDK in development mode and all required dependencies.
+
+### Option 2: Install dependencies manually
+
+If you prefer to install dependencies manually:
+
+```bash
+cd sdk
+pip install -r requirements.txt
+pip install -e .
+```
 
 ## 🚀 Quick Start
 
@@ -54,34 +58,82 @@ For a complete example, run:
 python cosmicembeddings/example_usage.py
 ```
 
----
+## 📚 Advanced Examples
+
+The SDK includes several examples that demonstrate different functionalities:
+
+### Custom Embedding Model Example
+
+```bash
+# Run the custom embedding model example
+python examples/custom_embedding_model.py
+```
+
+This example shows how to integrate a custom embedding model with the SDK.
+
+### SentenceTransformer Example
+
+```bash
+# Run the SentenceTransformer example
+python examples/sentence_transformer_example.py
+```
+
+This example demonstrates how to use the SDK with the SentenceTransformer model to generate real embeddings and perform similarity searches.
 
 ## 🧪 Running Tests
 
+### Using the test script
+
 ```bash
-pytest tests/
+# Run all tests
+cosmicembeddings-test
+
+# Run tests in verbose mode
+cosmicembeddings-test --verbose
+
+# Generate coverage report
+cosmicembeddings-test --coverage
+
+# Run specific tests
+cosmicembeddings-test --test test_block_builder.py --test test_signer.py
 ```
 
----
+### Using pytest directly
+
+```bash
+# Run all tests
+pytest tests/
+
+# Run tests in verbose mode
+pytest -v tests/
+
+# Generate coverage report
+pytest --cov=cosmicembeddings --cov-report=term-missing tests/
+```
 
 ## 📁 SDK Structure
 
 ```
 cosmicembeddings/
-├── block_builder.py   # Create new blocks with embeddings and metadata
-├── signer.py          # Ed25519 cryptographic signatures
-├── validator.py       # Cosmic validation using celestial positions
-├── cli.py             # Command-line interface
-├── __init__.py        # Package exports
-└── example_usage.py   # Complete usage example
+├── block_builder.py      # Create new blocks with embeddings and metadata
+├── signer.py             # Ed25519 cryptographic signatures
+├── validator.py          # Cosmic validation using celestial positions
+├── cosmic_signature.py   # Cosmic signature generation
+├── config.py             # Configuration management
+├── sync_client.py        # Client for synchronization with other nodes
+├── cli.py                # Command-line interface
+├── __init__.py           # Package exports
+└── example_usage.py      # Complete usage example
+
+examples/
+├── custom_embedding_model.py    # Example with custom model
+└── sentence_transformer_example.py  # Example with SentenceTransformer
 
 tests/
 ├── test_block_builder.py  # Tests for block creation
 ├── test_signer.py         # Tests for cryptographic signatures
 └── test_validator.py      # Tests for cosmic validation
 ```
-
----
 
 ## 🔧 Configuration
 
@@ -95,25 +147,26 @@ os.environ["COSMIC_LONGITUDE"] = "-74.0060"
 os.environ["COSMIC_ELEVATION"] = "0.0"
 
 # Or directly in code
-validator = CosmicValidator(latitude=40.7128, longitude=-74.0060, elevation=0.0)
+from cosmicembeddings import Config
+config = Config()
+config.set_location(40.7128, -74.0060, 0.0)
 ```
-
----
 
 ## 📚 Documentation
 
-- [Block Specification](../docs/block_spec.md)
-- [Node Protocol](../docs/node_protocol.md)
-- [Sync Protocol](../docs/sync_protocol.md)
-- [Cosmic Validation](../docs/cosmic_validation.md)
-- [Architecture Overview](../docs/architecture.md)
+For detailed documentation, see:
 
----
+- [SDK Detailed Documentation](../docs/sdk_detailed.md) - Complete guide with examples and best practices
+- [Block Specification](../docs/block_spec.md) - Structure and fields of blocks
+- [Node Protocol](../docs/node_protocol.md) - Node behavior and responsibilities
+- [Sync Protocol](../docs/sync_protocol.md) - How nodes communicate
+- [Cosmic Validation](../docs/cosmic_validation.md) - How cosmic signatures work
+- [Architecture](../docs/architecture.md) - System overview
 
 ## 🌟 Features
 
 ### Block Creation
-- Generate embeddings from text using state-of-the-art models
+- Generate text embeddings using state-of-the-art models
 - Add metadata and timestamps
 - Save and load blocks from JSON files
 
@@ -127,6 +180,11 @@ validator = CosmicValidator(latitude=40.7128, longitude=-74.0060, elevation=0.0)
 - Sun and moon position tracking
 - Timestamp verification
 - Location-based validation
+
+### Sync Client
+- Interaction with other nodes in the network
+- Search for blocks by tags or similarity
+- Share blocks with other nodes
 
 ### CLI Interface
 - Create and verify blocks from command line

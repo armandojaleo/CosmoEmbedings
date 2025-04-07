@@ -2,6 +2,16 @@
 
 import subprocess
 import time
+import os
+import sys
+
+# Add the SDK directory to the path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sdk')))
+
+from cosmicembeddings import Config
+
+# Initialize SDK components
+config = Config()
 
 def start_node(port):
     return subprocess.Popen(["python", "node_simulator.py", str(port)])
@@ -10,7 +20,7 @@ if __name__ == "__main__":
     ports = [8080, 8081, 8082]
     nodes = []
 
-    print("Launching multiple CosmicEmbeddings nodes:")
+    print(f"Launching multiple CosmicEmbeddings nodes (SDK version: {config.get('version', 'unknown')}):")
     for port in ports:
         print(f" - Node on port {port}")
         nodes.append(subprocess.Popen(["python", "node_simulator.py"], env={**dict(**os.environ), "PORT": str(port)}))
