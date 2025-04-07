@@ -1,0 +1,1 @@
+# Handles block validation
