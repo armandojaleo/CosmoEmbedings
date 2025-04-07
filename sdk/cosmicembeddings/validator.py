@@ -7,11 +7,12 @@ import json
 import hashlib
 from skyfield.api import load, wgs84
 from skyfield.data import hipparcos
+from .cosmic_signature import CosmicSignatureGenerator
 
 class CosmicValidator:
     """Class for validating blocks using cosmic signatures."""
     
-    def __init__(self, latitude: float, longitude: float, elevation: float = 0.0):
+    def __init__(self, latitude: float, longitude: float, elevation: float = 0.0, api_key: Optional[str] = None):
         """
         Initialize the CosmicValidator with location data.
         
@@ -19,11 +20,13 @@ class CosmicValidator:
             latitude: Latitude in degrees
             longitude: Longitude in degrees
             elevation: Elevation in meters (default: 0.0)
+            api_key: API key for astronomical data services (optional)
         """
         self.latitude = latitude
         self.longitude = longitude
         self.elevation = elevation
         self.location = wgs84.latlon(latitude, longitude, elevation_m=elevation)
+        self.signature_generator = CosmicSignatureGenerator(api_key=api_key)
         
     def get_celestial_signature(self, timestamp: Optional[float] = None) -> Dict:
         """
@@ -58,6 +61,14 @@ class CosmicValidator:
         sun_apparent = sun_pos.apparent()
         moon_apparent = moon_pos.apparent()
         
+        # Get cosmic signature from stars
+        cosmic_signature = self.signature_generator.generate_signature(
+            latitude=self.latitude,
+            longitude=self.longitude,
+            elevation=self.elevation,
+            timestamp=timestamp
+        )
+        
         # Create signature
         signature = {
             "timestamp": timestamp,
@@ -78,7 +89,8 @@ class CosmicValidator:
                     "distance_au": float(moon_pos.distance().au),
                     "phase": float(moon_pos.phase_angle().degrees)
                 }
-            }
+            },
+            "cosmic_signature": cosmic_signature
         }
         
         return signature
@@ -143,4 +155,17 @@ class CosmicValidator:
         if time_diff > 300:  # 5 minutes in seconds
             return False, "Cosmic signature timestamp too old"
             
+        # Verify the cosmic signature string
+        if "cosmic_signature" in stored_signature:
+            cosmic_signature = stored_signature["cosmic_signature"]
+            is_valid = self.signature_generator.verify_signature(
+                signature=cosmic_signature,
+                latitude=self.latitude,
+                longitude=self.longitude,
+                elevation=self.elevation,
+                timestamp=stored_signature["timestamp"]
+            )
+            if not is_valid:
+                return False, "Cosmic signature verification failed"
+                
         return True, "Cosmic signature verified"

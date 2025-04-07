@@ -17,11 +17,14 @@ This roadmap outlines the short-, mid-, and long-term milestones for the CosmicE
 
 ## 🚧 Phase 1 – SDK & Node MVP (In Progress)
 
-- [ ] Implement real embedding generation in `block_builder.py`
-- [ ] Add cryptographic signature with real Ed25519 keys
+- [x] Implement real embedding generation in `block_builder.py`
+- [x] Add cryptographic signature with real Ed25519 keys
+- [x] Implement configuration management system
+- [x] Create synchronization client for network interaction
 - [ ] Fetch and compute real cosmic signature from astronomy APIs
 - [ ] Validate blocks end-to-end from SDK to nodes
 - [ ] Add CLI options for block creation and querying
+- [ ] Update simulator to use new SDK features
 - [ ] Publish SDK to PyPI
 
 ---

@@ -10,6 +10,7 @@ import tempfile
 from block_builder import BlockBuilder
 from signer import Signer
 from validator import CosmicValidator
+from cosmic_signature import CosmicSignatureGenerator
 
 def main():
     # Create a temporary directory for our example
@@ -84,6 +85,32 @@ def main():
         if not is_valid:
             print(f"Reason: {reason}")
             
+        # Demonstrate direct use of CosmicSignatureGenerator
+        print("\n7. Demonstrating direct use of CosmicSignatureGenerator...")
+        generator = CosmicSignatureGenerator()
+        
+        # Generate a cosmic signature
+        signature = generator.generate_signature(40.7128, -74.0060)
+        print(f"Generated cosmic signature: {signature}")
+        
+        # Verify the signature
+        is_valid = generator.verify_signature(
+            signature=signature,
+            latitude=40.7128,
+            longitude=-74.0060
+        )
+        print(f"Signature verification: {'VALID' if is_valid else 'INVALID'}")
+        
+        # Demonstrate location sensitivity
+        print("\n8. Demonstrating location sensitivity...")
+        # Generate signatures for different locations
+        ny_signature = generator.generate_signature(40.7128, -74.0060)  # New York
+        la_signature = generator.generate_signature(34.0522, -118.2437)  # Los Angeles
+        
+        print(f"New York signature: {ny_signature}")
+        print(f"Los Angeles signature: {la_signature}")
+        print(f"Signatures are different: {ny_signature != la_signature}")
+        
         print("\n=== Example Complete ===")
         print(f"All files were saved in the temporary directory: {temp_dir}")
         print("This directory will be automatically deleted when the script exits.")

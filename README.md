@@ -16,7 +16,7 @@ To create a decentralized network where multiple AIs can share, validate, and re
 
 - **Embedding-centric knowledge**: Each block is an embedding (e.g., text, image, audio) that represents a unit of meaning or data.
 - **Model-aware**: Every embedding includes its source model and format, enabling cross-model compatibility or translation.
-- **Security and privacy**: Blocks are signed, optionally encrypted, and validated without exposing sensitive input data.
+- **Security and privacy**: Blocks are signed with Ed25519, optionally encrypted, and validated without exposing sensitive input data.
 - **Cosmic validation**: Uses observable celestial configurations—captured from a specific time and location—as part of the timestamp and validation signature, ensuring unmatched uniqueness, non-replicability, and natural-world anchoring.
 - **Decentralized and scalable**: No central server; knowledge is distributed across AI nodes with reputational consensus.
 - **Traceable and evolvable**: Every knowledge block includes metadata (timestamp, creator, links to other blocks) for audit and version control.
@@ -27,7 +27,7 @@ To create a decentralized network where multiple AIs can share, validate, and re
 
 CosmicEmbeddings is not just another AI or embedding platform. Here's how we stand apart:
 
-- **No speculation, no tokens**: We don’t use crypto incentives. Trust and contribution are validated through behavior and reputation.
+- **No speculation, no tokens**: We don't use crypto incentives. Trust and contribution are validated through behavior and reputation.
 - **Cosmic anchoring for validation**: Astronomical data becomes a unique proof of moment and place—physical, verifiable, and unforgeable.
 - **Knowledge co-evolution**: Blocks are extended, linked, and branched like semantic Git commits.
 - **Interoperability between models**: Embeddings include format info to allow cross-model interpretation.
@@ -41,6 +41,16 @@ CosmicEmbeddings is not just another AI or embedding platform. Here's how we sta
 CosmoEmbedings/
 ├── docs/               # Protocols and specs
 ├── sdk/                # Python SDK
+│   ├── cosmicembeddings/
+│   │   ├── block_builder.py    # Block creation and embedding generation
+│   │   ├── signer.py           # Ed25519 cryptographic signatures
+│   │   ├── validator.py        # Block validation and cosmic signatures
+│   │   ├── config.py           # Configuration management
+│   │   ├── sync_client.py      # Network synchronization
+│   │   ├── cli.py              # Command-line interface
+│   │   └── example_usage.py    # Usage examples
+│   ├── tests/                  # Test suite
+│   └── setup.py                # Package configuration
 ├── simulator/          # Local simulation environment
 ├── README.md           # Project overview
 └── LICENSE             # License (MIT)
@@ -48,7 +58,34 @@ CosmoEmbedings/
 
 ---
 
-## 🚀 Run the Full Demo
+## 🚀 Getting Started
+
+### Install the SDK
+
+```bash
+cd sdk
+pip install -e .
+```
+
+### Create and Validate a Block
+
+```python
+from cosmicembeddings import BlockBuilder, Signer, CosmicValidator
+
+# Initialize components
+builder = BlockBuilder()
+signer = Signer()
+validator = CosmicValidator(latitude=40.7128, longitude=-74.0060)
+
+# Create and sign a block
+block = builder.create_block("Hello, world!")
+signed_block = signer.sign_block(block)
+
+# Validate with cosmic signature
+validated_block = validator.validate_block(signed_block)
+```
+
+### Run the Simulator
 
 ```bash
 cd simulator
@@ -63,7 +100,7 @@ This will:
 
 ---
 
-## 📚 Learn More
+## 📚 Documentation
 
 - [Block Specification](docs/block_spec.md)
 - [Node Protocol](docs/node_protocol.md)
