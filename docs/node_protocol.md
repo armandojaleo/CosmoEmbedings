@@ -1,67 +1,171 @@
-# Node Protocol – CosmicEmbeddings
-
-This document defines the responsibilities and core behaviors of a **node** in the CosmicEmbeddings network.
-
-A node is any agent (human-guided or autonomous AI) that participates in the network by creating, validating, sharing, and querying knowledge blocks.
-
+---
+layout: default
 ---
 
-## 🔹 Node Roles
+# Node Protocol
 
-Every node may perform one or more of the following roles:
+The Node Protocol is a fundamental component of the CosmicEmbeddings network, enabling nodes to discover each other, establish connections, and maintain a peer-to-peer network.
 
-- **Creator**: Generates new embedding blocks from input data.
-- **Validator**: Verifies the integrity, cosmic signature, and digital authenticity of blocks.
-- **Consumer**: Queries and reuses blocks for its own reasoning or output.
-- **Synchronizer**: Shares validated blocks with peers, syncing the knowledge graph.
+## Overview
 
----
+The Node Protocol consists of three main components:
 
-## 🔹 Core Responsibilities
+1. **Node Identity**: A unique identifier for each node in the network
+2. **Discovery Service**: A mechanism for nodes to find each other
+3. **Peer Management**: A system for maintaining connections with other nodes
 
-### 1. Block Creation
+## Node Identity
 
-- Generate an embedding from input data.
-- Collect metadata: timestamp, location, input hash, etc.
-- Compute a cosmic signature from celestial data.
-- Digitally sign the block using the node's private key.
-- Publish the block to local storage or peer nodes.
+Each node in the network has a unique identity represented by the `NodeIdentity` class:
 
-### 2. Block Validation
+```python
+@dataclass
+class NodeIdentity:
+    node_id: str          # Unique identifier (UUID)
+    public_key: str       # Public key for cryptographic operations
+    address: str          # Network address
+    port: int            # Network port
+    version: str         # Protocol version
+    capabilities: List[str]  # Node capabilities
+    last_seen: float     # Timestamp of last activity
+```
 
-- Confirm digital signature validity.
-- Recompute hash and verify integrity.
-- Validate cosmic signature based on claimed location/time.
-- Apply additional filtering rules (e.g. schema compliance, tag rules).
+### Creating a Node Identity
 
-### 3. Query and Consumption
+```python
+from cosmicembeddings import Node, Config
 
-- Search blocks by tag, similarity (via vector search), or linked relationships.
-- Fetch specific block(s) and extract the embedding or metadata.
-- Use the embedding directly or transform it to another format/model.
+# Create a new node
+config = Config()
+node = Node(config)
 
-### 4. Synchronization
+# Access node identity
+identity = node.identity
+print(f"Node ID: {identity.node_id}")
+print(f"Address: {identity.address}:{identity.port}")
+```
 
-- Expose a local or remote API to request or serve blocks.
-- Propagate verified blocks to trusted peers.
-- Support on-demand pull or scheduled sync cycles.
+## Discovery Service
 
----
+The Discovery Service uses UDP broadcast to find other nodes in the network:
 
-## 🔹 Node Identity
+```python
+# Start node discovery
+node.start_discovery()
 
-- Each node has a unique ID and a public/private keypair.
-- Signatures use Ed25519 or compatible secure cryptographic scheme.
-- Public keys may be distributed through a lightweight registry or decentralized identity (DID) system.
+# Stop discovery when done
+node.stop_discovery()
+```
 
----
+### How Discovery Works
 
-## 🔹 Trust and Reputations (optional future spec)
+1. Each node broadcasts its identity periodically
+2. Nodes listen for broadcasts from other nodes
+3. When a new node is discovered, it's added to the peer list
+4. The discovery service runs in a separate thread to avoid blocking
 
-- Nodes may assign trust scores to peers based on validation history and semantic consistency.
-- Block reuse and endorsement can serve as implicit validation.
-- Reputation data may be local or shared depending on deployment.
+### Configuration
 
----
+The discovery service can be configured through the `Config` class:
 
-This protocol is designed to remain extensible. Features like real-time messaging, dispute resolution, or inter-model translation can be built on top.
+```python
+config = Config()
+config.set("discovery_port", 8091)  # Port for discovery service
+config.set("node_address", "localhost")  # Node's network address
+config.set("node_port", 8090)  # Node's main port
+```
+
+## Peer Management
+
+Nodes maintain a list of known peers and can interact with them:
+
+```python
+# Get list of known peers
+peers = node.get_peers()
+for peer in peers:
+    print(f"Peer: {peer.node_id} at {peer.address}:{peer.port}")
+
+# Add a peer manually
+node.add_peer(peer_identity)
+
+# Remove a peer
+node.remove_peer(peer_id)
+```
+
+### Peer State
+
+The state of each peer is tracked, including:
+- Last seen timestamp
+- Connection status
+- Capabilities
+- Version compatibility
+
+## Best Practices
+
+1. **Identity Management**
+   - Always use unique node IDs
+   - Keep public keys secure
+   - Update node capabilities as needed
+
+2. **Discovery**
+   - Use appropriate broadcast intervals
+   - Handle network errors gracefully
+   - Implement timeout mechanisms
+
+3. **Peer Management**
+   - Regularly clean up inactive peers
+   - Verify peer capabilities
+   - Maintain connection state
+
+## Example Usage
+
+Here's a complete example of using the Node Protocol:
+
+```python
+from cosmicembeddings import Node, Config
+import time
+
+# Create and configure a node
+config = Config()
+config.set("node_address", "localhost")
+config.set("node_port", 8090)
+config.set("discovery_port", 8091)
+
+node = Node(config)
+
+# Start discovery
+node.start_discovery()
+
+try:
+    # Run for a while
+    while True:
+        # Get and print peers
+        peers = node.get_peers()
+        print(f"Known peers: {len(peers)}")
+        for peer in peers:
+            print(f"  - {peer.node_id} ({peer.address}:{peer.port})")
+        
+        time.sleep(5)
+except KeyboardInterrupt:
+    # Clean shutdown
+    node.stop_discovery()
+```
+
+## Next Steps
+
+The Node Protocol will be extended with:
+
+1. **Node Reputation**
+   - Track node behavior
+   - Implement trust metrics
+   - Add reputation-based routing
+
+2. **Enhanced Configuration**
+   - Dynamic port assignment
+   - Network interface selection
+   - Protocol version negotiation
+
+3. **Security Features**
+   - Encrypted communication
+   - Authentication mechanisms
+   - Access control lists

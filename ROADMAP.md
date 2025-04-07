@@ -15,7 +15,7 @@ This roadmap outlines the short-, mid-, and long-term milestones for the CosmicE
 
 ---
 
-## 🎯 Phase 1: Core SDK Development (Current)
+## 🎯 Phase 1: Core SDK Development (Done)
 
 ### Block Creation and Signing
 - [x] Implement basic block structure
@@ -47,12 +47,12 @@ This roadmap outlines the short-, mid-, and long-term milestones for the CosmicE
 
 ---
 
-## 🚀 Phase 2: Network Implementation (Next)
+## 🚀 Phase 2: Network Implementation (Current)
 
 ### Node Protocol
-- [ ] Implement node discovery
-- [ ] Add peer management
-- [ ] Create node identity system
+- [x] Implement node discovery
+- [x] Add peer management
+- [x] Create node identity system
 - [ ] Implement node reputation
 - [ ] Add node configuration
 
