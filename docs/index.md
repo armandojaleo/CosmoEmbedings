@@ -6,16 +6,16 @@ Welcome to the CosmoEmbeddings documentation, a decentralized semantic network f
 
 ### SDK Documentation
 
-* [SDK Detailed Documentation]({{ site.baseurl }}/sdk_detailed.md) - Complete guide with examples and best practices
-* [SDK Interface]({{ site.baseurl }}/sdk_interface.md) - Definition of the SDK structure and functionality
+* [SDK Detailed Documentation]({{ site.baseurl }}/sdk_detailed/) - Complete guide with examples and best practices
+* [SDK Interface]({{ site.baseurl }}/sdk_interface/) - Definition of the SDK structure and functionality
 
 ### Technical Specifications
 
-* [Block Specification]({{ site.baseurl }}/block_spec.md) - Structure and fields of knowledge blocks
-* [Node Protocol]({{ site.baseurl }}/node_protocol.md) - Node behavior and responsibilities
-* [Sync Protocol]({{ site.baseurl }}/sync_protocol.md) - How nodes communicate
-* [Cosmo Validation]({{ site.baseurl }}/cosmo_validation.md) - How cosmo signatures work
-* [Architecture]({{ site.baseurl }}/architecture.md) - System overview
+* [Block Specification]({{ site.baseurl }}/block_spec/) - Structure and fields of knowledge blocks
+* [Node Protocol]({{ site.baseurl }}/node_protocol/) - Node behavior and responsibilities
+* [Sync Protocol]({{ site.baseurl }}/sync_protocol/) - How nodes communicate
+* [Cosmo Validation]({{ site.baseurl }}/cosmo_validation/) - How cosmo signatures work
+* [Architecture]({{ site.baseurl }}/architecture/) - System overview
 
 ## 🚀 Introduction to CosmoEmbeddings
 
@@ -65,9 +65,9 @@ CosmoEmbeddings can be used for:
 
 To start using CosmoEmbeddings, see:
 
-* [SDK Installation]({{ site.baseurl }}/sdk_detailed.md#installation)
-* [Quick Start]({{ site.baseurl }}/getting_started.md)
-* [Advanced Examples]({{ site.baseurl }}/sdk_detailed.md#advanced-examples)
+* [SDK Installation]({{ site.baseurl }}/sdk_detailed/#installation)
+* [Quick Start]({{ site.baseurl }}/getting_started/)
+* [Advanced Examples]({{ site.baseurl }}/sdk_detailed/#advanced-examples)
 
 ## 🤝 Contributing
 

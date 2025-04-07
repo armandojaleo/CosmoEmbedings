@@ -1,0 +1,3 @@
+[console_scripts]
+cosmoembeddings = cosmoembeddings.cli:main
+cosmoembeddings-test = cosmoembeddings.example_usage:main
