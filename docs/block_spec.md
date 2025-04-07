@@ -23,7 +23,7 @@ Each block represents a unit of machine-interpretable knowledge (typically an em
     "lat": 40.4168,
     "lon": -3.7038
   },
-  "cosmic_signature": "Orion-127.5-Angle",
+  "cosmo_signature": "Orion-127.5-Angle",
   "created_by": "agent_XYZ",
   "signature": "ed25519(...)",
   "version": 1,
@@ -44,8 +44,8 @@ Each block represents a unit of machine-interpretable knowledge (typically an em
   - `hash`: Digest of the raw input.
   - `origin`: (optional) Link or label of the source.
 - **timestamp**: When the block was generated.
-- **observer_location**: Geolocation of the agent or sensor that created the cosmic signature.
-- **cosmic_signature**: A unique representation derived from astronomical conditions at a specific place and time.
+- **observer_location**: Geolocation of the agent or sensor that created the cosmo signature.
+- **cosmo_signature**: A unique representation derived from astronomical conditions at a specific place and time.
 - **created_by**: ID of the agent that created the block.
 - **signature**: Digital signature over the full content.
 - **version**: Version of the block structure.
@@ -57,7 +57,7 @@ Each block represents a unit of machine-interpretable knowledge (typically an em
 ## 🔹 Validation Process
 
 1. **Hash Verification**: The hash in `input_reference` must match the original input (if available).
-2. **Cosmo Validation**: The `cosmic_signature` must match the observed astronomical data at the timestamp and location.
+2. **Cosmo Validation**: The `cosmo_signature` must match the observed astronomical data at the timestamp and location.
 3. **Signature Check**: The block’s contents must be signed by the agent and verifiable by its public key.
 4. **Optional Rule Sets**: Communities may apply custom rules for accepting or rejecting blocks (e.g., based on tags or reputation).
 

@@ -7,10 +7,10 @@ import json
 import hashlib
 from skyfield.api import load, wgs84
 from skyfield.data import hipparcos
-from .cosmic_signature import CosmoSignatureGenerator
+from .cosmo_signature import CosmoSignatureGenerator
 
 class CosmoValidator:
-    """Class for validating blocks using cosmic signatures."""
+    """Class for validating blocks using cosmo signatures."""
     
     def __init__(self, latitude: float, longitude: float, elevation: float = 0.0, api_key: Optional[str] = None):
         """
@@ -61,8 +61,8 @@ class CosmoValidator:
         sun_apparent = sun_pos.apparent()
         moon_apparent = moon_pos.apparent()
         
-        # Get cosmic signature from stars
-        cosmic_signature = self.signature_generator.generate_signature(
+        # Get cosmo signature from stars
+        cosmo_signature = self.signature_generator.generate_signature(
             latitude=self.latitude,
             longitude=self.longitude,
             elevation=self.elevation,
@@ -90,14 +90,14 @@ class CosmoValidator:
                     "phase": float(moon_pos.phase_angle().degrees)
                 }
             },
-            "cosmic_signature": cosmic_signature
+            "cosmo_signature": cosmo_signature
         }
         
         return signature
     
     def validate_block(self, block: Dict) -> Tuple[bool, str]:
         """
-        Validate a block using cosmic signature.
+        Validate a block using cosmo signature.
         
         Args:
             block: Block to validate
@@ -109,24 +109,24 @@ class CosmoValidator:
         if "timestamp" not in block:
             return False, "Block missing timestamp"
             
-        # Get cosmic signature for block's timestamp
+        # Get cosmo signature for block's timestamp
         signature = self.get_celestial_signature(block["timestamp"])
         
-        # Add cosmic signature to block
-        block["cosmic_signature"] = signature
+        # Add cosmo signature to block
+        block["cosmo_signature"] = signature
         
-        # Calculate hash of cosmic signature
+        # Calculate hash of cosmo signature
         signature_str = json.dumps(signature, sort_keys=True)
         signature_hash = hashlib.sha256(signature_str.encode()).hexdigest()
         
         # Add hash to block
-        block["cosmic_hash"] = signature_hash
+        block["cosmo_hash"] = signature_hash
         
-        return True, "Block validated with cosmic signature"
+        return True, "Block validated with cosmo signature"
     
-    def verify_cosmic_signature(self, block: Dict) -> Tuple[bool, str]:
+    def verify_cosmo_signature(self, block: Dict) -> Tuple[bool, str]:
         """
-        Verify the cosmic signature of a block.
+        Verify the cosmo signature of a block.
         
         Args:
             block: Block to verify
@@ -134,12 +134,12 @@ class CosmoValidator:
         Returns:
             Tuple[bool, str]: (is_valid, reason)
         """
-        if "cosmic_signature" not in block or "cosmic_hash" not in block:
-            return False, "Block missing cosmic signature or hash"
+        if "cosmo_signature" not in block or "cosmo_hash" not in block:
+            return False, "Block missing cosmo signature or hash"
             
         # Get stored signature and hash
-        stored_signature = block["cosmic_signature"]
-        stored_hash = block["cosmic_hash"]
+        stored_signature = block["cosmo_signature"]
+        stored_hash = block["cosmo_hash"]
         
         # Calculate hash of stored signature
         signature_str = json.dumps(stored_signature, sort_keys=True)
@@ -155,11 +155,11 @@ class CosmoValidator:
         if time_diff > 300:  # 5 minutes in seconds
             return False, "Cosmo signature timestamp too old"
             
-        # Verify the cosmic signature string
-        if "cosmic_signature" in stored_signature:
-            cosmic_signature = stored_signature["cosmic_signature"]
+        # Verify the cosmo signature string
+        if "cosmo_signature" in stored_signature:
+            cosmo_signature = stored_signature["cosmo_signature"]
             is_valid = self.signature_generator.verify_signature(
-                signature=cosmic_signature,
+                signature=cosmo_signature,
                 latitude=self.latitude,
                 longitude=self.longitude,
                 elevation=self.elevation,

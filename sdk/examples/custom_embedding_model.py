@@ -15,7 +15,7 @@ from datetime import datetime
 # Add the parent directory to the path to import the SDK
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
+from cosmoembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 # Custom embedding model class
 class CustomEmbeddingModel:
@@ -141,8 +141,8 @@ def main():
     is_valid = signer.verify_block(loaded_block)
     print(f"Signature valid: {is_valid}")
     
-    # Verify the cosmic signature
-    is_valid, reason = validator.verify_cosmic_signature(loaded_block)
+    # Verify the cosmo signature
+    is_valid, reason = validator.verify_cosmo_signature(loaded_block)
     print(f"Cosmo signature valid: {is_valid}")
     if not is_valid:
         print(f"Reason: {reason}")

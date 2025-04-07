@@ -1,6 +1,6 @@
 # CosmoEmbeddings SDK
 
-The CosmoEmbeddings SDK is a Python library for creating, signing, and validating knowledge blocks based on embeddings. It allows you to generate and sign knowledge blocks, validate blocks with cosmic signatures, and cryptographically sign with Ed25519.
+The CosmoEmbeddings SDK is a Python library for creating, signing, and validating knowledge blocks based on embeddings. It allows you to generate and sign knowledge blocks, validate blocks with cosmo signatures, and cryptographically sign with Ed25519.
 
 ## 📦 Installation
 
@@ -29,16 +29,16 @@ pip install -e .
 
 ```bash
 # Create a new block with embeddings
-cosmicembeddings create --content "Your text here" --sign --validate --latitude 40.7128 --longitude -74.0060
+cosmoembeddings create --content "Your text here" --sign --validate --latitude 40.7128 --longitude -74.0060
 
 # Verify a block
-cosmicembeddings verify block.json --latitude 40.7128 --longitude -74.0060
+cosmoembeddings verify block.json --latitude 40.7128 --longitude -74.0060
 ```
 
 ### Using the Python API
 
 ```python
-from cosmicembeddings import BlockBuilder, Signer, CosmoValidator
+from cosmoembeddings import BlockBuilder, Signer, CosmoValidator
 
 # Create a block
 builder = BlockBuilder()
@@ -48,14 +48,14 @@ block = builder.create_block("Your text here", metadata={"source": "example"})
 signer = Signer()
 signed_block = signer.sign_block(block)
 
-# Validate with cosmic signature
+# Validate with cosmo signature
 validator = CosmoValidator(latitude=40.7128, longitude=-74.0060)
 is_valid, reason = validator.validate_block(signed_block)
 ```
 
 For a complete example, run:
 ```bash
-python cosmicembeddings/example_usage.py
+python cosmoembeddings/example_usage.py
 ```
 
 ## 📚 Advanced Examples
@@ -86,16 +86,16 @@ This example demonstrates how to use the SDK with the SentenceTransformer model 
 
 ```bash
 # Run all tests
-cosmicembeddings-test
+cosmoembeddings-test
 
 # Run tests in verbose mode
-cosmicembeddings-test --verbose
+cosmoembeddings-test --verbose
 
 # Generate coverage report
-cosmicembeddings-test --coverage
+cosmoembeddings-test --coverage
 
 # Run specific tests
-cosmicembeddings-test --test test_block_builder.py --test test_signer.py
+cosmoembeddings-test --test test_block_builder.py --test test_signer.py
 ```
 
 ### Using pytest directly
@@ -108,17 +108,17 @@ pytest tests/
 pytest -v tests/
 
 # Generate coverage report
-pytest --cov=cosmicembeddings --cov-report=term-missing tests/
+pytest --cov=cosmoembeddings --cov-report=term-missing tests/
 ```
 
 ## 📁 SDK Structure
 
 ```
-cosmicembeddings/
+cosmoembeddings/
 ├── block_builder.py      # Create new blocks with embeddings and metadata
 ├── signer.py             # Ed25519 cryptographic signatures
 ├── validator.py          # Cosmo validation using celestial positions
-├── cosmic_signature.py   # Cosmo signature generation
+├── cosmo_signature.py   # Cosmo signature generation
 ├── config.py             # Configuration management
 ├── sync_client.py        # Client for synchronization with other nodes
 ├── cli.py                # Command-line interface
@@ -132,7 +132,7 @@ examples/
 tests/
 ├── test_block_builder.py  # Tests for block creation
 ├── test_signer.py         # Tests for cryptographic signatures
-└── test_validator.py      # Tests for cosmic validation
+└── test_validator.py      # Tests for cosmo validation
 ```
 
 ## 🔧 Configuration
@@ -147,7 +147,7 @@ os.environ["COSMIC_LONGITUDE"] = "-74.0060"
 os.environ["COSMIC_ELEVATION"] = "0.0"
 
 # Or directly in code
-from cosmicembeddings import Config
+from cosmoembeddings import Config
 config = Config()
 config.set_location(40.7128, -74.0060, 0.0)
 ```
@@ -160,7 +160,7 @@ For detailed documentation, see:
 - [Block Specification](../docs/block_spec.md) - Structure and fields of blocks
 - [Node Protocol](../docs/node_protocol.md) - Node behavior and responsibilities
 - [Sync Protocol](../docs/sync_protocol.md) - How nodes communicate
-- [Cosmo Validation](../docs/cosmic_validation.md) - How cosmic signatures work
+- [Cosmo Validation](../docs/cosmo_validation.md) - How cosmo signatures work
 - [Architecture](../docs/architecture.md) - System overview
 
 ## 🌟 Features

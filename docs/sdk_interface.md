@@ -9,7 +9,7 @@ This document defines the structure and functionality of the core SDK for intera
 The SDK enables developers and agents to:
 
 - Generate and sign knowledge blocks.
-- Validate blocks (including cosmic signature).
+- Validate blocks (including cosmo signature).
 - Interact with other nodes via the sync protocol.
 - Integrate easily into AI pipelines.
 

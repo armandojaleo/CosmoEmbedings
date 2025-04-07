@@ -8,7 +8,7 @@ import sys
 # Add the SDK directory to the path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sdk')))
 
-from cosmicembeddings import Config
+from cosmoembeddings import Config
 
 # Initialize SDK components
 config = Config()

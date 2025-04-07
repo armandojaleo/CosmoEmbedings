@@ -1,21 +1,19 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="cosmicembeddings",
+    name="cosmoembeddings",
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
         # Core dependencies
         "numpy>=1.21.0",
-        "scikit-learn>=1.0.0",
-        "transformers>=4.15.0",
-        "torch>=1.10.0",
+        "pandas>=1.3.0",
         
         # Embedding models
-        "sentence-transformers>=2.2.2",
+        "sentence-transformers>=2.2.0",
         
         # Cryptography
-        "ed25519>=1.5",
+        "pynacl>=1.5.0",
         
         # Astronomy
         "skyfield>=1.42",
@@ -23,37 +21,39 @@ setup(
         # Utilities
         "requests>=2.26.0",
         "python-dotenv>=0.19.0",
-        "tqdm>=4.62.0",
+        "tqdm>=4.62.0"
     ],
     extras_require={
         "dev": [
-            "pytest>=6.0.0",
-            "pytest-cov>=2.12.0",
-            "black>=21.5b2",
+            "pytest>=6.2.5",
+            "pytest-cov>=2.12.1",
+            "black>=21.9b0",
             "flake8>=3.9.2",
-            "mypy>=0.910",
-        ],
+            "mypy>=0.910"
+        ]
     },
     entry_points={
         "console_scripts": [
-            "cosmicembeddings=cosmicembeddings.cli:main",
-            "cosmicembeddings-test=run_tests:main",
-        ],
+            "cosmoembeddings=cosmoembeddings.cli:main",
+            "cosmoembeddings-test=cosmoembeddings.example_usage:main"
+        ]
     },
-    author="CosmoEmbeddings Team",
-    author_email="team@cosmicembeddings.org",
-    description="A decentralized semantic network for AIs built on embeddings",
+    author="Armando Jaleo",
+    author_email="armandojaleo@gmail.com",
+    description="CosmoEmbeddings SDK for creating and validating knowledge blocks",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/cosmicembeddings/sdk",
+    url="https://github.com/armandojaleo/CosmoEmbeddings",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12"
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.8",
 )

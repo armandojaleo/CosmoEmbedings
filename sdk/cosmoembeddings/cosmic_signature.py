@@ -6,11 +6,11 @@ from datetime import datetime
 import math
 
 class CosmoSignatureGenerator:
-    """Generates cosmic signatures using real astronomical data."""
+    """Generates cosmo signatures using real astronomical data."""
     
     def __init__(self, api_key: Optional[str] = None):
         """
-        Initialize the cosmic signature generator.
+        Initialize the cosmo signature generator.
         
         Args:
             api_key: API key for astronomical data services (optional)
@@ -109,7 +109,7 @@ class CosmoSignatureGenerator:
                           timestamp: Optional[float] = None,
                           num_stars: int = 5) -> str:
         """
-        Generate a cosmic signature based on star positions.
+        Generate a cosmo signature based on star positions.
         
         Args:
             latitude: Latitude in degrees
@@ -200,7 +200,7 @@ class CosmoSignatureGenerator:
                         timestamp: Optional[float] = None,
                         tolerance: float = 0.5) -> bool:
         """
-        Verify a cosmic signature against the current sky.
+        Verify a cosmo signature against the current sky.
         
         Args:
             signature: Cosmo signature to verify

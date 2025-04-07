@@ -9,7 +9,7 @@ This document provides detailed information about the CosmoEmbeddings SDK, inclu
 3. [Core Components](#core-components)
    - [BlockBuilder](#blockbuilder)
    - [Signer](#signer)
-   - [CosmoValidator](#cosmicvalidator)
+   - [CosmoValidator](#cosmovalidator)
    - [Config](#config)
    - [SyncClient](#syncclient)
 4. [CLI Interface](#cli-interface)
@@ -40,7 +40,7 @@ pip install -e .
 The `BlockBuilder` class is responsible for creating knowledge blocks with embeddings and metadata.
 
 ```python
-from cosmicembeddings import BlockBuilder
+from cosmoembeddings import BlockBuilder
 
 # Initialize the builder
 builder = BlockBuilder()
@@ -63,7 +63,7 @@ block = builder.create_block(content, metadata)
 # - input_reference: Information about the input
 # - timestamp: When the block was created
 # - observer_location: Where the block was created
-# - cosmic_signature: A signature based on celestial positions
+# - cosmo_signature: A signature based on celestial positions
 # - created_by: Who created the block
 # - version: The block version
 # - tags: Keywords for the block
@@ -75,7 +75,7 @@ block = builder.create_block(content, metadata)
 The `Signer` class provides cryptographic signing of blocks using Ed25519.
 
 ```python
-from cosmicembeddings import Signer
+from cosmoembeddings import Signer
 
 # Initialize the signer
 signer = Signer()
@@ -93,10 +93,10 @@ print(f"Signature valid: {is_valid}")
 
 ### CosmoValidator
 
-The `CosmoValidator` class validates blocks using cosmic signatures based on celestial positions.
+The `CosmoValidator` class validates blocks using cosmo signatures based on celestial positions.
 
 ```python
-from cosmicembeddings import CosmoValidator
+from cosmoembeddings import CosmoValidator
 
 # Initialize the validator with location
 validator = CosmoValidator(
@@ -115,8 +115,8 @@ if not is_valid:
 signature = validator.get_celestial_signature(block)
 print(f"Celestial signature: {signature}")
 
-# Verify a cosmic signature
-is_valid, reason = validator.verify_cosmic_signature(signed_block)
+# Verify a cosmo signature
+is_valid, reason = validator.verify_cosmo_signature(signed_block)
 print(f"Cosmo signature valid: {is_valid}")
 if not is_valid:
     print(f"Reason: {reason}")
@@ -127,7 +127,7 @@ if not is_valid:
 The `Config` class manages the SDK configuration.
 
 ```python
-from cosmicembeddings import Config
+from cosmoembeddings import Config
 
 # Initialize the config
 config = Config()
@@ -142,7 +142,7 @@ config.load_from_file("config.json")
 node_id = config.get("node_id", "default_node_id")
 
 # Set a configuration value
-config.set("api_endpoint", "https://api.cosmicembeddings.org")
+config.set("api_endpoint", "https://api.cosmoembeddings.org")
 
 # Save configuration to a file
 config.save_to_file("config.json")
@@ -153,10 +153,10 @@ config.save_to_file("config.json")
 The `SyncClient` class enables interaction with other nodes in the network.
 
 ```python
-from cosmicembeddings import SyncClient
+from cosmoembeddings import SyncClient
 
 # Initialize the client
-client = SyncClient(api_endpoint="https://api.cosmicembeddings.org")
+client = SyncClient(api_endpoint="https://api.cosmoembeddings.org")
 
 # Push a block to the network
 success = client.push_block(signed_block)
@@ -176,13 +176,13 @@ The SDK provides a command-line interface for common operations.
 
 ```bash
 # Create a new block with embeddings
-cosmicembeddings create --content "Your text here" --sign --validate --latitude 40.7128 --longitude -74.0060
+cosmoembeddings create --content "Your text here" --sign --validate --latitude 40.7128 --longitude -74.0060
 
 # Verify a block
-cosmicembeddings verify block.json --latitude 40.7128 --longitude -74.0060
+cosmoembeddings verify block.json --latitude 40.7128 --longitude -74.0060
 
 # Run tests
-cosmicembeddings-test --verbose
+cosmoembeddings-test --verbose
 ```
 
 ## Examples
@@ -190,7 +190,7 @@ cosmicembeddings-test --verbose
 ### Complete Workflow
 
 ```python
-from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
+from cosmoembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 # Initialize components
 config = Config()
@@ -253,7 +253,7 @@ with open("example_block.json", "w") as f:
    private_key = os.environ.get("COSMIC_PRIVATE_KEY")
    ```
 
-4. **Use consistent locations for cosmic validation**:
+4. **Use consistent locations for cosmo validation**:
    ```python
    # Use the same location for creating and validating blocks
    validator = CosmoValidator(latitude=40.7128, longitude=-74.0060)
@@ -265,7 +265,7 @@ with open("example_block.json", "w") as f:
 
 1. **Block validation fails**:
    - Check that the block has all required fields
-   - Verify that the cosmic signature was generated at the correct location
+   - Verify that the cosmo signature was generated at the correct location
    - Ensure the timestamp is valid
 
 2. **Signature verification fails**:
@@ -280,6 +280,6 @@ with open("example_block.json", "w") as f:
 
 If you encounter issues not covered here, please:
 
-1. Check the [GitHub repository](https://github.com/cosmicembeddings/sdk) for updates
+1. Check the [GitHub repository](https://github.com/cosmoembeddings/sdk) for updates
 2. Open an issue on GitHub with details about your problem
-3. Join the [Discord community](https://discord.gg/cosmicembeddings) for real-time help 
+3. Join the [Discord community](https://discord.gg/cosmoembeddings) for real-time help 

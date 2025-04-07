@@ -33,7 +33,7 @@ def run_tests(test_files=None, verbose=False, coverage=False):
     
     # Add coverage if requested
     if coverage:
-        cmd.extend(["--cov=cosmicembeddings", "--cov-report=term-missing"])
+        cmd.extend(["--cov=cosmoembeddings", "--cov-report=term-missing"])
     
     # Add test files
     for test_file in test_files:

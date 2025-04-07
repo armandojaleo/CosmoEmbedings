@@ -1,6 +1,6 @@
 import unittest
 import time
-from cosmicembeddings import CosmoSignatureGenerator
+from cosmoembeddings import CosmoSignatureGenerator
 
 class TestCosmoSignatureGenerator(unittest.TestCase):
     """Test cases for the CosmoSignatureGenerator class."""
@@ -24,7 +24,7 @@ class TestCosmoSignatureGenerator(unittest.TestCase):
         self.assertIn("distance", star)
         
     def test_generate_signature(self):
-        """Test generating a cosmic signature."""
+        """Test generating a cosmo signature."""
         signature = self.generator.generate_signature(40.7128, -74.0060)
         self.assertIsInstance(signature, str)
         self.assertTrue("-" in signature)
@@ -36,7 +36,7 @@ class TestCosmoSignatureGenerator(unittest.TestCase):
         self.assertTrue(parts[1].replace(".", "").isdigit())  # Magnitude
         
     def test_verify_signature(self):
-        """Test verifying a cosmic signature."""
+        """Test verifying a cosmo signature."""
         # Generate a signature
         signature = self.generator.generate_signature(40.7128, -74.0060)
         
@@ -49,7 +49,7 @@ class TestCosmoSignatureGenerator(unittest.TestCase):
         self.assertTrue(is_valid)
         
     def test_verify_invalid_signature(self):
-        """Test verifying an invalid cosmic signature."""
+        """Test verifying an invalid cosmo signature."""
         # Create an invalid signature
         invalid_signature = "Invalid-0.0"
         

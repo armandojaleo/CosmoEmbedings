@@ -6,4 +6,14 @@ url: "https://armandojaleo.github.io"
 
 # Build settings
 markdown: kramdown
-permalink: pretty 
+permalink: pretty
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/
+  - .github/
+  - .gitignore 

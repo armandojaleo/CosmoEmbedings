@@ -14,7 +14,7 @@ Welcome to the CosmoEmbeddings documentation, a decentralized semantic network f
 - [Block Specification](block_spec.md) - Structure and fields of knowledge blocks
 - [Node Protocol](node_protocol.md) - Node behavior and responsibilities
 - [Sync Protocol](sync_protocol.md) - How nodes communicate
-- [Cosmo Validation](cosmic_validation.md) - How cosmic signatures work
+- [Cosmo Validation](cosmo_validation.md) - How cosmo signatures work
 - [Architecture](architecture.md) - System overview
 
 ## 🚀 Introduction to CosmoEmbeddings
@@ -32,7 +32,7 @@ CosmoEmbeddings is a project that aims to create a decentralized semantic networ
 The CosmoEmbeddings SDK is a Python library that allows:
 
 - Creating and signing knowledge blocks
-- Validating blocks with cosmic signatures
+- Validating blocks with cosmo signatures
 - Cryptographically signing with Ed25519
 - Interacting with the network through a CLI interface
 

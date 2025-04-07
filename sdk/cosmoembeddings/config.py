@@ -23,7 +23,7 @@ class Config:
             "api_endpoint": "http://localhost:8080",
             "private_key": None,
             "public_key": None,
-            "cosmic_validation": {
+            "cosmo_validation": {
                 "enabled": True,
                 "max_age_seconds": 300,  # 5 minutes
                 "require_location": True
@@ -65,13 +65,13 @@ class Config:
             
         # Cosmo validation configuration
         if "COSMIC_VALIDATION_ENABLED" in os.environ:
-            self.config["cosmic_validation"]["enabled"] = os.environ["COSMIC_VALIDATION_ENABLED"].lower() == "true"
+            self.config["cosmo_validation"]["enabled"] = os.environ["COSMIC_VALIDATION_ENABLED"].lower() == "true"
             
         if "COSMIC_VALIDATION_MAX_AGE" in os.environ:
-            self.config["cosmic_validation"]["max_age_seconds"] = int(os.environ["COSMIC_VALIDATION_MAX_AGE"])
+            self.config["cosmo_validation"]["max_age_seconds"] = int(os.environ["COSMIC_VALIDATION_MAX_AGE"])
             
         if "COSMIC_VALIDATION_REQUIRE_LOCATION" in os.environ:
-            self.config["cosmic_validation"]["require_location"] = os.environ["COSMIC_VALIDATION_REQUIRE_LOCATION"].lower() == "true"
+            self.config["cosmo_validation"]["require_location"] = os.environ["COSMIC_VALIDATION_REQUIRE_LOCATION"].lower() == "true"
             
     def _load_from_file(self, config_file: str):
         """
@@ -228,56 +228,56 @@ class Config:
         self.config["private_key"] = private_key
         self.config["public_key"] = public_key
         
-    def is_cosmic_validation_enabled(self) -> bool:
+    def is_cosmo_validation_enabled(self) -> bool:
         """
-        Check if cosmic validation is enabled.
+        Check if cosmo validation is enabled.
         
         Returns:
             True if enabled, False otherwise
         """
-        return self.config["cosmic_validation"]["enabled"]
+        return self.config["cosmo_validation"]["enabled"]
         
-    def set_cosmic_validation_enabled(self, enabled: bool):
+    def set_cosmo_validation_enabled(self, enabled: bool):
         """
-        Enable or disable cosmic validation.
+        Enable or disable cosmo validation.
         
         Args:
-            enabled: Whether to enable cosmic validation
+            enabled: Whether to enable cosmo validation
         """
-        self.config["cosmic_validation"]["enabled"] = enabled
+        self.config["cosmo_validation"]["enabled"] = enabled
         
-    def get_cosmic_validation_max_age(self) -> int:
+    def get_cosmo_validation_max_age(self) -> int:
         """
-        Get the maximum age for cosmic validation in seconds.
+        Get the maximum age for cosmo validation in seconds.
         
         Returns:
             Maximum age in seconds
         """
-        return self.config["cosmic_validation"]["max_age_seconds"]
+        return self.config["cosmo_validation"]["max_age_seconds"]
         
-    def set_cosmic_validation_max_age(self, max_age_seconds: int):
+    def set_cosmo_validation_max_age(self, max_age_seconds: int):
         """
-        Set the maximum age for cosmic validation.
+        Set the maximum age for cosmo validation.
         
         Args:
             max_age_seconds: Maximum age in seconds
         """
-        self.config["cosmic_validation"]["max_age_seconds"] = max_age_seconds
+        self.config["cosmo_validation"]["max_age_seconds"] = max_age_seconds
         
     def is_location_required(self) -> bool:
         """
-        Check if location is required for cosmic validation.
+        Check if location is required for cosmo validation.
         
         Returns:
             True if required, False otherwise
         """
-        return self.config["cosmic_validation"]["require_location"]
+        return self.config["cosmo_validation"]["require_location"]
         
     def set_location_required(self, required: bool):
         """
-        Set whether location is required for cosmic validation.
+        Set whether location is required for cosmo validation.
         
         Args:
             required: Whether location is required
         """
-        self.config["cosmic_validation"]["require_location"] = required
+        self.config["cosmo_validation"]["require_location"] = required

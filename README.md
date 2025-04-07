@@ -41,10 +41,10 @@ CosmoEmbeddings is not just another AI or embedding platform. Here's how we stan
 CosmoEmbeddings/
 ├── docs/               # Protocols and specs
 ├── sdk/                # Python SDK
-│   ├── cosmicembeddings/
+│   ├── cosmoembeddings/
 │   │   ├── block_builder.py    # Block creation and embedding generation
 │   │   ├── signer.py           # Ed25519 cryptographic signatures
-│   │   ├── validator.py        # Block validation and cosmic signatures
+│   │   ├── validator.py        # Block validation and cosmo signatures
 │   │   ├── config.py           # Configuration management
 │   │   ├── sync_client.py      # Network synchronization
 │   │   ├── cli.py              # Command-line interface
@@ -70,7 +70,7 @@ pip install -e .
 ### Create and Validate a Block
 
 ```python
-from cosmicembeddings import BlockBuilder, Signer, CosmoValidator
+from cosmoembeddings import BlockBuilder, Signer, CosmoValidator
 
 # Initialize components
 builder = BlockBuilder()
@@ -81,7 +81,7 @@ validator = CosmoValidator(latitude=40.7128, longitude=-74.0060)
 block = builder.create_block("Hello, world!")
 signed_block = signer.sign_block(block)
 
-# Validate with cosmic signature
+# Validate with cosmo signature
 validated_block = validator.validate_block(signed_block)
 ```
 
@@ -106,7 +106,7 @@ This will:
 
 - [Block Specification](docs/block_spec.md)
 - [Node Protocol](docs/node_protocol.md)
-- [Cosmo Validation](docs/cosmic_validation.md)
+- [Cosmo Validation](docs/cosmo_validation.md)
 - [SDK Interface](docs/sdk_interface.md)
 - [Architecture](docs/architecture.md)
 

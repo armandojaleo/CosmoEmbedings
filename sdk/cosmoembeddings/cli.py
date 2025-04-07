@@ -33,7 +33,7 @@ def create_block(args):
         signer = Signer()
         block = signer.sign_block(block)
         
-    # Validate block with cosmic signature if requested
+    # Validate block with cosmo signature if requested
     if args.validate:
         validator = CosmoValidator(args.latitude, args.longitude, args.elevation)
         is_valid, reason = validator.validate_block(block)
@@ -49,7 +49,7 @@ def create_block(args):
         print(json.dumps(block, indent=2))
         
 def verify_block(args):
-    """Verify a block's signature and cosmic validation."""
+    """Verify a block's signature and cosmo validation."""
     # Load block from file
     with open(args.block_file, 'r', encoding='utf-8') as f:
         block = json.load(f)
@@ -64,10 +64,10 @@ def verify_block(args):
     else:
         print("Ed25519 signature: NOT FOUND")
         
-    # Verify cosmic signature if present
-    if "cosmic_signature" in block and "cosmic_hash" in block:
+    # Verify cosmo signature if present
+    if "cosmo_signature" in block and "cosmo_hash" in block:
         validator = CosmoValidator(args.latitude, args.longitude, args.elevation)
-        is_valid, reason = validator.verify_cosmic_signature(block)
+        is_valid, reason = validator.verify_cosmo_signature(block)
         print(f"Cosmo signature: {'VALID' if is_valid else 'INVALID'}")
         if not is_valid:
             print(f"Reason: {reason}")
@@ -87,18 +87,18 @@ def main():
     create_parser.add_argument("--output-file", help="File to save the block to")
     create_parser.add_argument("--metadata", nargs="+", help="Metadata in key=value format")
     create_parser.add_argument("--sign", action="store_true", help="Sign the block with Ed25519")
-    create_parser.add_argument("--validate", action="store_true", help="Validate the block with cosmic signature")
-    create_parser.add_argument("--latitude", type=float, default=0.0, help="Latitude for cosmic validation")
-    create_parser.add_argument("--longitude", type=float, default=0.0, help="Longitude for cosmic validation")
-    create_parser.add_argument("--elevation", type=float, default=0.0, help="Elevation for cosmic validation")
+    create_parser.add_argument("--validate", action="store_true", help="Validate the block with cosmo signature")
+    create_parser.add_argument("--latitude", type=float, default=0.0, help="Latitude for cosmo validation")
+    create_parser.add_argument("--longitude", type=float, default=0.0, help="Longitude for cosmo validation")
+    create_parser.add_argument("--elevation", type=float, default=0.0, help="Elevation for cosmo validation")
     create_parser.set_defaults(func=create_block)
     
     # Verify block command
     verify_parser = subparsers.add_parser("verify", help="Verify a block")
     verify_parser.add_argument("block_file", help="File containing the block to verify")
-    verify_parser.add_argument("--latitude", type=float, default=0.0, help="Latitude for cosmic validation")
-    verify_parser.add_argument("--longitude", type=float, default=0.0, help="Longitude for cosmic validation")
-    verify_parser.add_argument("--elevation", type=float, default=0.0, help="Elevation for cosmic validation")
+    verify_parser.add_argument("--latitude", type=float, default=0.0, help="Latitude for cosmo validation")
+    verify_parser.add_argument("--longitude", type=float, default=0.0, help="Longitude for cosmo validation")
+    verify_parser.add_argument("--elevation", type=float, default=0.0, help="Elevation for cosmo validation")
     verify_parser.set_defaults(func=verify_block)
     
     args = parser.parse_args()

@@ -10,7 +10,7 @@ from datetime import datetime
 # Add the SDK directory to the path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sdk')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
+from cosmoembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 # Initialize SDK components
 config = Config()
@@ -36,7 +36,7 @@ block = builder.create_block(content, metadata)
 # Sign the block
 signed_block = signer.sign_block(block)
 
-# Validate the block with cosmic signature
+# Validate the block with cosmo signature
 is_valid, reason = validator.validate_block(signed_block)
 if not is_valid:
     print(f"Block validation failed: {reason}")

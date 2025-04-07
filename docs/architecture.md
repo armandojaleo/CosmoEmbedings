@@ -21,7 +21,7 @@ CosmoEmbeddings is a decentralized, multi-agent network where each node (AI or a
 ### 2. **Knowledge Block**
 - Unit of knowledge (embedding + metadata).
 - Digitally signed and optionally encrypted.
-- Anchored to real-world events via timestamp and cosmic signature.
+- Anchored to real-world events via timestamp and cosmo signature.
 
 ### 3. **Cosmo Validator**
 - Optional subsystem or service.
@@ -43,7 +43,7 @@ CosmoEmbeddings is a decentralized, multi-agent network where each node (AI or a
 
 1. Agent receives or generates raw input (text/image/audio).
 2. Computes embedding + block metadata (hash, tags, time, location).
-3. Queries astronomical data for cosmic signature.
+3. Queries astronomical data for cosmo signature.
 4. Signs block and stores locally.
 5. Shares with peers via sync protocol.
 6. Peers validate the signature, hash, and sky data.

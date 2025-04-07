@@ -2,7 +2,7 @@ import pytest
 import numpy as np
 import os
 import tempfile
-from cosmicembeddings.block_builder import BlockBuilder
+from cosmoembeddings.block_builder import BlockBuilder
 
 def test_block_builder_initialization():
     builder = BlockBuilder()

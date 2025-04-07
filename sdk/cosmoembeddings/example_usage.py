@@ -10,7 +10,7 @@ import tempfile
 from block_builder import BlockBuilder
 from signer import Signer
 from validator import CosmoValidator
-from cosmic_signature import CosmoSignatureGenerator
+from cosmo_signature import CosmoSignatureGenerator
 
 def main():
     # Create a temporary directory for our example
@@ -25,7 +25,7 @@ def main():
         
         # Create a block
         print("\n2. Creating a block...")
-        content = "This is an example of a cosmic embedding block."
+        content = "This is an example of a cosmo embedding block."
         metadata = {"source": "example", "author": "demo"}
         block = builder.create_block(content, metadata)
         print(f"Block created with {len(block['embeddings'])} embeddings")
@@ -45,8 +45,8 @@ def main():
         builder.save_block(signed_block, signed_block_path)
         print(f"Signed block saved to {signed_block_path}")
         
-        # Validate the block with cosmic signature
-        print("\n4. Validating the block with cosmic signature...")
+        # Validate the block with cosmo signature
+        print("\n4. Validating the block with cosmo signature...")
         is_valid, reason = validator.validate_block(signed_block)
         print(f"Validation result: {reason}")
         
@@ -63,8 +63,8 @@ def main():
         else:
             print("Ed25519 signature: INVALID")
             
-        # Verify cosmic signature
-        is_valid, reason = validator.verify_cosmic_signature(signed_block)
+        # Verify cosmo signature
+        is_valid, reason = validator.verify_cosmo_signature(signed_block)
         print(f"Cosmo signature: {'VALID' if is_valid else 'INVALID'}")
         if not is_valid:
             print(f"Reason: {reason}")
@@ -80,7 +80,7 @@ def main():
         else:
             print("Ed25519 signature: INVALID (expected)")
             
-        is_valid, reason = validator.verify_cosmic_signature(tampered_block)
+        is_valid, reason = validator.verify_cosmo_signature(tampered_block)
         print(f"Cosmo signature: {'VALID' if is_valid else 'INVALID'}")
         if not is_valid:
             print(f"Reason: {reason}")
@@ -89,9 +89,9 @@ def main():
         print("\n7. Demonstrating direct use of CosmoSignatureGenerator...")
         generator = CosmoSignatureGenerator()
         
-        # Generate a cosmic signature
+        # Generate a cosmo signature
         signature = generator.generate_signature(40.7128, -74.0060)
-        print(f"Generated cosmic signature: {signature}")
+        print(f"Generated cosmo signature: {signature}")
         
         # Verify the signature
         is_valid = generator.verify_signature(

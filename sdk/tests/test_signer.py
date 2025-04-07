@@ -1,6 +1,6 @@
 import pytest
 import base64
-from cosmicembeddings.signer import Signer
+from cosmoembeddings.signer import Signer
 
 def test_signer_initialization():
     signer = Signer()

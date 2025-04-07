@@ -1,6 +1,6 @@
 # Cosmo Validation Protocol – CosmoEmbeddings
 
-This document describes the protocol for generating and verifying the **cosmic signature** of a knowledge block.
+This document describes the protocol for generating and verifying the **cosmo signature** of a knowledge block.
 
 Cosmo validation anchors each block to a unique moment in space-time using observable astronomical data, offering a natural, tamper-proof fingerprint.
 
@@ -26,7 +26,7 @@ Each node includes:
 Example:
 ```json
 {
-  "cosmic_signature": "Orion-127.5",
+  "cosmo_signature": "Orion-127.5",
   "source_data": {
     "datetime": "2025-04-06T18:43:00Z",
     "lat": 40.4168,
@@ -53,7 +53,7 @@ Example:
 Any other node can:
 
 - Recompute the star pattern from the block’s timestamp and location.
-- Match it against the `cosmic_signature` hash.
+- Match it against the `cosmo_signature` hash.
 - Reject blocks with mismatches or implausible values (e.g., daylight observation of a star field).
 
 ---

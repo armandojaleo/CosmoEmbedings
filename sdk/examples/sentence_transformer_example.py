@@ -15,7 +15,7 @@ import numpy as np
 # Add the parent directory to the path to import the SDK
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
+from cosmoembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 class SentenceTransformerModel:
     """A wrapper for the SentenceTransformer model."""

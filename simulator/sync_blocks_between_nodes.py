@@ -9,7 +9,7 @@ import json
 # Add the SDK directory to the path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sdk')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
+from cosmoembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 NODES = [
     "http://localhost:8080",
@@ -53,10 +53,10 @@ def validate_block(block):
         print(f"Block {block['id']} signature verification failed")
         return False
         
-    # Verify cosmic signature
-    is_valid, reason = validator.verify_cosmic_signature(block)
+    # Verify cosmo signature
+    is_valid, reason = validator.verify_cosmo_signature(block)
     if not is_valid:
-        print(f"Block {block['id']} cosmic signature verification failed: {reason}")
+        print(f"Block {block['id']} cosmo signature verification failed: {reason}")
         return False
         
     return True

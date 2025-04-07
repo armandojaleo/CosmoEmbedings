@@ -33,7 +33,7 @@ class NodeIdentity:
 ### Creating a Node Identity
 
 ```python
-from cosmicembeddings import Node, Config
+from cosmoembeddings import Node, Config
 
 # Create a new node
 config = Config()
@@ -122,7 +122,7 @@ The state of each peer is tracked, including:
 Here's a complete example of using the Node Protocol:
 
 ```python
-from cosmicembeddings import Node, Config
+from cosmoembeddings import Node, Config
 import time
 
 # Create and configure a node

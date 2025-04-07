@@ -10,7 +10,7 @@ from datetime import datetime
 # Add the SDK directory to the path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'sdk')))
 
-from cosmicembeddings import BlockBuilder, Signer, CosmoValidator, Config
+from cosmoembeddings import BlockBuilder, Signer, CosmoValidator, Config
 
 # In-memory store for demo purposes
 BLOCKS = {}
@@ -69,8 +69,8 @@ class SimpleNodeHandler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps({"error": "Block signature verification failed"}).encode())
                 return
                 
-            # Verify cosmic signature
-            is_valid, reason = validator.verify_cosmic_signature(block)
+            # Verify cosmo signature
+            is_valid, reason = validator.verify_cosmo_signature(block)
             if not is_valid:
                 self._set_headers(400)
                 self.wfile.write(json.dumps({"error": f"Cosmo signature verification failed: {reason}"}).encode())

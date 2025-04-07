@@ -25,7 +25,7 @@ This roadmap outlines the short-, mid-, and long-term milestones for the CosmoEm
 - [x] Create CLI interface for block operations
 
 ### Cosmo Validation
-- [x] Implement cosmic signature generation
+- [x] Implement cosmo signature generation
 - [x] Add skyfield integration for astronomical data
 - [x] Create validation protocol
 - [x] Add location-based validation
